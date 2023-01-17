@@ -8,12 +8,7 @@ export function view_create(parent) {
     let most_recent;
     let result = {
         set: function view_set(create) {
-            most_recent = create;
-            if (child) {
-                child.remove();
-            }
-            child = element_div(container);
-            create(child);
+            view_set_no_stack(create);
             stack.push(create);
         },
         refresh: function view_refresh() {
@@ -27,6 +22,15 @@ export function view_create(parent) {
         }
     };
     return result
+
+    function view_set_no_stack(create) {
+        most_recent = create;
+        if (child) {
+            child.remove();
+        }
+        child = element_div(container);
+        create(child);
+    }
 }
 
 
