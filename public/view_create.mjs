@@ -1,5 +1,6 @@
 import { element_clear } from "./element_clear.mjs";
 import { element_div } from "./element_div.mjs";
+import { list_last } from "./list_last.mjs";
 
 export function view_create(parent) {
     let container = element_div(parent);
@@ -29,7 +30,4 @@ export function view_create(parent) {
     return result
 }
 
-function list_last(list) {
-    return list[list.length - 1];
-}
 
