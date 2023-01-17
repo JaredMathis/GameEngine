@@ -2,7 +2,6 @@ import { view_set } from "./view_set.mjs";
 import { element_button_standard } from "./element_button_standard.mjs";
 import { local_storage_key_settings_font_size } from "./local_storage_key_settings_font_size.mjs";
 import { local_storage_set } from "./local_storage_set.mjs";
-import { number_range_in } from "./number_range_in.mjs";
 
 export function component_settings(parent, view) {
     element_button_standard(
