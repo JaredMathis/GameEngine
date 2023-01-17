@@ -20,7 +20,7 @@ export function view_create(parent) {
         refresh: function view_refresh() {
             result.set(most_recent);
         },
-        pop: function view_stack(create) {
+        pop: function view_pop() {
             stack.pop();
             if (stack.length) {
                 result.view_set(list_last(stack));
