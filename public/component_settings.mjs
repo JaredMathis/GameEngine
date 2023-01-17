@@ -14,14 +14,19 @@ function component_settings_font_size(parent, view) {
             local_storage_set(key, function action(current) {
                 current = parseFloat(current) || 1;
                 current *= 1.1;
-                if (current >= 5) {
-                    current = 5;
-                }
+                current = number_max(current, 5);
                 return current;
             });
             console.log('here')
             view.refresh();
         });
+}
+
+function number_max(current, max_value) {
+    if (current > max_value) {
+        current = max_value5;
+    }
+    return current;
 }
 
 function local_storage_set(key, action) {
