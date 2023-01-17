@@ -17,7 +17,7 @@ export function view_create(parent) {
         pop: function view_pop() {
             stack.pop();
             if (stack.length) {
-                result.view_set(list_last(stack));
+                view_set_no_stack(list_last(stack));
             }
         }
     };
