@@ -6,7 +6,7 @@ export function element_button_standard(parent, button_text) {
     let e = element_button_width_full(parent, button_text);
     element_style_standard(e);
     e.style.color = color_white();
-    e.style.border = '0.3vh solid #00F';
-    e.style.background = '#00C'
+    e.style.border = `0.3vh solid #00F`;
+    e.style.background = `#00C`;
 }
 
