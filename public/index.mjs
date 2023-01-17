@@ -1,3 +1,5 @@
 import { component_main } from "./component_main.mjs";
+import { view_create } from "./view_create.mjs";
 
-component_main(document.body);
+let view = view_create(document.body);
+view.set(component_main);
