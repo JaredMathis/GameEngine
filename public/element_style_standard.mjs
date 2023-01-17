@@ -5,7 +5,6 @@ import { element_style_margin_y } from "./element_style_margin_y.mjs";
 export function element_style_standard(e) {
     element_style_font_size_standard(e);
     element_style_border_rounded(e);
-    let value = '0.3vh';
-    element_style_margin_y(e, value);
+    element_style_margin_y(e, '0.3vh');
 }
 
