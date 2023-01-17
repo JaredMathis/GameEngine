@@ -14,8 +14,12 @@ function component_settings_font_size(parent, view) {
             local_storage_set(key, function action(current) {
                 current = parseFloat(current) || 1;
                 current *= 1.1;
+                if (current >= 5) {
+                    current = 5;
+                }
                 return current;
             });
+            console.log('here')
             view.refresh();
         });
 }

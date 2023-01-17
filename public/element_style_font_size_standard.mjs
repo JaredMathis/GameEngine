@@ -5,7 +5,7 @@ export function element_style_font_size_standard(e) {
 }
 
 function local_storage_get(key_get, default_value) {
-    let result = localStorage.getItem(key_get) || default_value;
+    let result = localStorage.getItem(key_get()) || default_value;
     console.log({result})
     return result;
 }
