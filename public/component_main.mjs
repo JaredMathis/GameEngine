@@ -1,6 +1,5 @@
 import { element_button_width_full } from "./element_button_width_full.mjs";
-import { element_style_border_rounded } from "./element_style_border_rounded.mjs";
-import { element_style_font_size_standard } from "./element_style_font_size_standard.mjs";
+import { element_style_standard } from "./element_style_standard.mjs";
 
 export function component_main(parent) {
     const button_text = 'New';
@@ -11,8 +10,4 @@ export function component_main(parent) {
 
 
 
-function element_style_standard(e) {
-    element_style_font_size_standard(e);
-    element_style_border_rounded(e);
-}
 
