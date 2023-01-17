@@ -1,4 +1,5 @@
 import { element_button_standard } from "./element_button_standard.mjs";
+import { element_div } from "./element_div.mjs";
 import { element_style_background_color_standard } from "./element_style_background_color_standard.mjs";
 import { noop } from "./noop.mjs";
 
@@ -15,7 +16,4 @@ function view_create(parent) {
 }
 
 
-function element_div(parent) {
-    return element(parent, 'div');
-}
 
