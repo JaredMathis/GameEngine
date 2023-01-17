@@ -5,9 +5,13 @@ import { noop } from "./noop.mjs";
 export function component_main(parent, view) {
     element_button_standard(parent, 'New', noop);
     element_button_standard(parent, 'Open', noop);
-    element_button_standard(parent, 'Settings', () => {
-        view.set(component_settings);
-    });
+    element_button_standard(parent, 'Settings', view_set(view, component_settings));
 }
 
+
+function view_set(view, component) {
+    return () => {
+        view.set(component);
+    };
+}
 
