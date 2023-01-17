@@ -8,12 +8,29 @@ export function component_new(parent, view) {
     let name = element_input(parent, 'Name of Game');
     name.focus();
     element_button_standard(parent, 'Create', () => {
-        local_storage_set(() => game_prefix() + name.value, current => {
-            current = current || { name: name.value }
-            return current;
-        })
+        let key = game_prefix() + name.value;
+        local_storage_object_set(key, o => {
+            default_values(o, {
+                name: name.value
+            });
+        });
         view.pop();
     });
     button_back(parent, view);
+}
+
+function default_values(object, defaults) {
+    for (let k in defaults) {
+        
+    }
+}
+
+function local_storage_object_set(key, transform) {
+    local_storage_set(key, current => {
+        current = current || "{}";
+        current = JSON.parse(current);
+        current = transform(current);
+        return JSON.stringify(current);
+    });
 }
 
