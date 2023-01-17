@@ -1,3 +1,3 @@
-export function component_settings(parent) {
+export function component_settings(parent, view) {
     parent.innerHTML = 'here';
 }
