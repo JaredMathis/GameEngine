@@ -1,6 +1,5 @@
 import { color_blue_light } from "./color_blue_light.mjs";
 import { color_blue_standard } from "./color_blue_standard.mjs";
-import { color_white } from "./color_white.mjs";
 import { element_button_width_full } from "./element_button_width_full.mjs";
 import { element_style_standard } from "./element_style_standard.mjs";
 
