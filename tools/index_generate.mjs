@@ -3,6 +3,7 @@ file_write(`
     <head></head>
     <body>
         <script type="module">
+            
         </script>
     </body>
 </html>
