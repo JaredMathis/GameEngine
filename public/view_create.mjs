@@ -12,7 +12,7 @@ export function view_create(parent) {
             stack.push(create);
         },
         refresh: function view_refresh() {
-            result.set(most_recent);
+            view_set_no_stack(most_recent);
         },
         pop: function view_pop() {
             stack.pop();

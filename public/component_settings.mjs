@@ -33,6 +33,7 @@ function component_settings_font_size(parent, view) {
                 view.refresh();
             });
     }
+    element_button_standard(parent, 'Back', () => view.pop());
 }
 
 
