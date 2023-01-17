@@ -1,3 +1,5 @@
+import { file_write } from './file_write.mjs';
+
 await file_write(`public/index.html`,
 `
 <html>
@@ -8,8 +10,4 @@ await file_write(`public/index.html`,
 </html>
 `)
 
-import fs from 'fs';
 
-async function file_write(file_path, file_contents) {
-    await fs.promises.writeFile(file_path, file_contents, 'utf8');
-}
