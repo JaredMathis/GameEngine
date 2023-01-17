@@ -1,4 +1,5 @@
-file_write(`
+await file_write(`public/index.html`,
+`
 <html>
     <head></head>
     <body>
@@ -6,3 +7,9 @@ file_write(`
     </body>
 </html>
 `)
+
+import fs from 'fs';
+
+async function file_write(file_path, file_contents) {
+    await fs.promises.writeFile(file_path, file_contents, 'utf8');
+}
