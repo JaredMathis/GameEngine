@@ -10,21 +10,24 @@ export function component_settings(parent, view) {
 }
 
 function component_settings_font_size(parent, view) {
+    let factor = 1.05;
     let buttons = [{
         text: 'Larger',
-        factor: 1.1,
+        transform: x => x * factor,
     }, {
         text: 'Smaller',
-        factor: 0.9,
+        transform: x => x / factor,
     }]
-    for (let button of buttons) {
+    for (let button_ of buttons) {
+        let button = button_
         element_button_standard(
             parent, button.text, () => {
                 const key = local_storage_key_settings_font_size();
                 local_storage_set(key, function action(current) {
                     current = parseFloat(current) || 1;
-                    current *= button.factor;
-                    current = number_range_in(current);
+                    current = button.transform(current);
+                    current = number_range_in(current, 0.5, 5);
+                    console.log({current})
                     return current;
                 });
                 view.refresh();
