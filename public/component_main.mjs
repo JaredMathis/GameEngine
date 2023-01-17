@@ -1,3 +1,4 @@
+import { component_settings } from "./component_settings.mjs";
 import { element_button_standard } from "./element_button_standard.mjs";
 import { noop } from "./noop.mjs";
 
@@ -9,7 +10,4 @@ export function component_main(parent, view) {
     });
 }
 
-function component_settings(parent) {
-    parent.innerHTML = 'here';
-}
 
