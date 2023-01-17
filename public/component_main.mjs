@@ -13,6 +13,12 @@ export function component_main(parent) {
 
 function view_create(parent) {
     let child = element_div(parent);
+    return {
+        set: function view_set(create) {
+            element_clear(child);
+            create(child);
+        }
+    }
 }
 
 
