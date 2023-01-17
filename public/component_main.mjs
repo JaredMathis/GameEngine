@@ -1,8 +1,7 @@
 import { button_back } from "./button_back.mjs";
 import { component_settings } from "./component_settings.mjs";
-import { element } from "./element.mjs";
 import { element_button_standard } from "./element_button_standard.mjs";
-import { element_style_container } from "./element_style_container.mjs";
+import { element_input } from "./element_input.mjs";
 import { noop } from "./noop.mjs";
 import { view_set } from "./view_set.mjs";
 
@@ -16,11 +15,10 @@ export function component_main(parent, view) {
 }
 
 function component_new(parent, view) {
-    let input = element(parent, 'input');
-    element_style_container(input);
-    input.style.padding = '0.7vh';
+    element_input(parent);
     button_back(parent, view);
 }
+
 
 
 
