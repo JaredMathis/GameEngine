@@ -1,5 +1,6 @@
 import { button_back } from "./button_back.mjs";
 import { component_settings } from "./component_settings.mjs";
+import { element } from "./element.mjs";
 import { element_button_standard } from "./element_button_standard.mjs";
 import { noop } from "./noop.mjs";
 import { view_set } from "./view_set.mjs";
@@ -14,6 +15,8 @@ export function component_main(parent, view) {
 }
 
 function component_new(parent, view) {
+    let input = element(parent, 'input');
+    
     button_back(parent, view);
 }
 
