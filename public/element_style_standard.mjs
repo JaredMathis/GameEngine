@@ -5,6 +5,7 @@ import { element_style_margin_y } from "./element_style_margin_y.mjs";
 
 export function element_style_standard(e) {
     element_style_font_size_standard(e);
+    e.style.fontFamily = 'Sans-Serif'
     e.style.color = color_white();
     element_style_border_rounded(e);
     element_style_margin_y(e, '0.3vh');
