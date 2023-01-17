@@ -5,4 +5,4 @@ import { element_style_background_color_standard } from "./element_style_backgro
 element_style_background_color_standard(document.body);
 
 let view = view_create(document.body);
-view.set(component_main);
+view.set(parent => component_main(parent, view));
