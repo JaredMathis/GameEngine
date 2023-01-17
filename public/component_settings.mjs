@@ -2,6 +2,7 @@ import { view_set } from "./view_set.mjs";
 import { element_button_standard } from "./element_button_standard.mjs";
 import { local_storage_key_settings_font_size } from "./local_storage_key_settings_font_size.mjs";
 import { local_storage_set } from "./local_storage_set.mjs";
+import { number_range_in } from "./number_range_in.mjs";
 
 export function component_settings(parent, view) {
     element_button_standard(
@@ -26,8 +27,7 @@ function component_settings_font_size(parent, view) {
                 local_storage_set(key, function action(current) {
                     current = parseFloat(current) || 1;
                     current = button.transform(current);
-                    // current = number_range_in(current, 0.5, 5);
-                    console.log({current})
+                    current = number_range_in(current, 0.5, 5);
                     return current;
                 });
                 view.refresh();
