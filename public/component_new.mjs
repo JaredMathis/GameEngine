@@ -3,7 +3,7 @@ import { default_values } from "./default_values.mjs";
 import { element_button_standard } from "./element_button_standard.mjs";
 import { element_input } from "./element_input.mjs";
 import { game_prefix } from "./game_prefix.mjs";
-import { local_storage_set } from "./local_storage_set.mjs";
+import { local_storage_object_set } from "./local_storage_object_set.mjs";
 
 export function component_new(parent, view) {
     let name = element_input(parent, 'Name of Game');
@@ -20,12 +20,4 @@ export function component_new(parent, view) {
     button_back(parent, view);
 }
 
-function local_storage_object_set(key, transform) {
-    local_storage_set(key, current => {
-        current = current || "{}";
-        current = JSON.parse(current);
-        current = transform(current);
-        return JSON.stringify(current);
-    });
-}
 
