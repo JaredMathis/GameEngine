@@ -3,11 +3,13 @@ import { button_back } from "./button_back.mjs";
 import { element_button_standard } from "./element_button_standard.mjs";
 import { element_input } from "./element_input.mjs";
 import { field_values_get } from "./field_values_get.mjs";
+import { local_storage_object_get } from "./local_storage_object_get.mjs";
 import { local_storage_object_set } from "./local_storage_object_set.mjs";
 import { property_get } from "./property_get.mjs";
 
-export function component_new(fields, prefix, initial_values) {
+export function component_new(fields, prefix, actual_key) {
     return function (parent, view) {
+        let initial_values = local_storage_object_get(actual_key);
         let first = true;
         let field_controls = {
         };
