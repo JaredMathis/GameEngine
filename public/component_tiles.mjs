@@ -5,17 +5,18 @@ export function component_tiles(parent, view) {
     component_new_open(
         parent,
         view,
-        tiles_prefix(), [
-        {
-            id: 'name',
-            name: 'Name of Tile Set',
-            type: 'string',
-        },
-        {
-            id: 'name',
-            name: 'URL',
-            type: 'string',
-        },
-    ]
+        tiles_prefix(), 
+        [
+            {
+                id: 'name',
+                name: 'Name of Tile Set',
+                type: 'string',
+            },
+            {
+                id: 'name',
+                name: 'URL',
+                type: 'string',
+            },
+        ]
     );
 }
