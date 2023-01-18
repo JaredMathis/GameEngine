@@ -22,7 +22,7 @@ export function component_edit_local_storage(fields, prefix, id_initial) {
         let key = prefix + property_get(field_values, 'name');
         local_storage_object_set(
             key,
-            o => field_values
+            () => field_values
         );
     }
 
