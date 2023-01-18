@@ -5,6 +5,7 @@ import { element_button_standard } from "./element_button_standard.mjs";
 import { element_select } from "./element_select.mjs";
 import { game_prefix } from "./game_prefix.mjs";
 import { list_empty_not } from "./list_empty_not.mjs";
+import { local_storage_set } from "./local_storage_set.mjs";
 import { view_set } from "./view_set.mjs";
 
 export function component_main(parent, view) {
@@ -28,7 +29,7 @@ function component_open(parent, view) {
     let choices = games.map(k => k.substring(prefix.length));
     let choose = element_select(parent, choices);
     element_button_standard(parent, 'Open', () => {
-
+        local_storage_set('game_selected', current => choose.value)
     })
     choose.focus();
 }
