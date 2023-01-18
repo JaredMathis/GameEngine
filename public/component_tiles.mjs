@@ -27,13 +27,16 @@ export function component_tiles(parent, view) {
             },
         ],
         async (parent, view, initial_values) => {
-            let img = await image_on_load_hidden(parent, initial_values.url);
-            let tiles_y = Math.floor(img.height / initial_values.size);
-            let tiles_x = Math.floor(img.width / initial_values.size);
+            let {size, url} = initial_values;
+            let img = await image_on_load_hidden(parent, url);
+            let tiles_y = Math.floor(img.height / size);
+            let tiles_x = Math.floor(img.width / size);
 
             for (let y of range(tiles_y)) {
                 for (let x of range(tiles_x)) {
-                    ,let img = element_img(parent, initial_values.url)
+                    let img = element_img(parent, url)
+                    img.style.width = size;
+                    img.style.height = size;
                 }
             }
         }
