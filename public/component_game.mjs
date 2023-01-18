@@ -22,7 +22,7 @@ export function component_game(parent, view) {
     let games = games_get();
     if (list_empty_not(games)) {
         component_button_view(
-            parent, view, 'Open', component_open);
+            parent, view, 'Open', component_open(prefix));
     }
     button_back(parent, view);
 }
