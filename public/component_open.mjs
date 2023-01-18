@@ -9,6 +9,5 @@ export function component_open(parent, view) {
     let choices = games.map(k => k.substring(prefix.length));
 
     let local_storage_key = 'selected_game';
-    let next_screen = component_empty;
-    component_choice_multiple(parent, choices, local_storage_key, view, next_screen);
+    component_choice_multiple(parent, choices, local_storage_key, view, component_empty);
 }
