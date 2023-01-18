@@ -8,6 +8,5 @@ export function component_open(parent, view) {
     const prefix = game_prefix();
     let choices = games.map(k => k.substring(prefix.length));
 
-    let local_storage_key = 'selected_game';
-    component_choice_multiple(parent, choices, local_storage_key, view, component_empty);
+    component_choice_multiple(parent, choices, 'selected_game', view, component_empty);
 }
