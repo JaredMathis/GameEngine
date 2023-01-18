@@ -44,5 +44,6 @@ async function image_on_load(parent, url) {
             reject();
         });
     });
+    return img;
 }
 
