@@ -45,18 +45,19 @@ export function component_edit(fields, prefix, id_initial) {
                 }
             }
         }
-        element_button_standard(parent, 'Save', on_save);
+        element_button_standard(parent, 'Save', () => on_save({field_controls, prefix, view}));
         button_back(parent, view);
         
         function on_save() {
-            on_save(field_controls, prefix, view);
+            ;
         }
     }
 }
 
 
 
-function on_save(field_controls, prefix, view) {
+function on_save(args) {
+    let {field_controls, prefix, view} = args;
     let field_values = field_values_get(field_controls);
     let key = prefix + property_get(field_values, 'name');
     local_storage_object_set(
