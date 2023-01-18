@@ -1,6 +1,6 @@
 import { button_back } from "./button_back.mjs";
 import { component_button_view } from "./component_button_view.mjs";
-import { component_new } from "./component_new.mjs";
+import { component_edit } from "./component_edit.mjs";
 import { component_open } from "./component_open.mjs";
 import { list_empty_not } from "./list_empty_not.mjs";
 import { local_storage_entities_get } from "./local_storage_entities_get.mjs";
@@ -14,7 +14,7 @@ export function component_new_open(
         parent,
         view,
         'New',
-        component_new(fields, prefix)
+        component_edit(fields, prefix)
     );
     let entities = local_storage_entities_get(prefix);
     if (list_empty_not(entities)) {
@@ -29,7 +29,7 @@ export function component_new_open(
                         parent,
                         view,
                         'Edit',
-                        component_new(
+                        component_edit(
                             fields, 
                             prefix,
                             selected_key)

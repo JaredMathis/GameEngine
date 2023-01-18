@@ -1,4 +1,4 @@
-import { component_new } from "./component_new.mjs";
+import { component_edit } from "./component_edit.mjs";
 import { component_new_open } from "./component_new_open.mjs";
 import { element_img } from "./element_img.mjs";
 import { element_on_click } from "./element_on_click.mjs";
@@ -60,7 +60,7 @@ export function component_tiles(parent, view) {
                         img, 
                         view_set_get(
                             view, 
-                            component_new(
+                            component_edit(
                                 img_fields, 
                                 tiles_prefix() + stored.name + "_",
                                 y + '_' + x)
