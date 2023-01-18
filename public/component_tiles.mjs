@@ -42,7 +42,7 @@ export function component_tiles(parent, view) {
             let img_fields = [
                 {
                     id: 'name',
-                    name: 'Name',
+                    name: 'Name (y- x- coordinates)',
                     type: 'string',
                 },
                 {
