@@ -1,4 +1,5 @@
 import { component_new_open } from "./component_new_open.mjs";
+import { element_img } from "./element_img.mjs";
 import { image_on_load_hidden } from "./image_on_load_hidden.mjs";
 import { range } from "./range.mjs";
 import { tiles_prefix } from "./tiles_prefix.mjs";
@@ -26,13 +27,13 @@ export function component_tiles(parent, view) {
             },
         ],
         async (parent, view, initial_values) => {
-            let img = await image_on_load_hidden(parent, initial_values);
+            let img = await image_on_load_hidden(parent, initial_values.url);
             let tiles_y = Math.floor(img.height / initial_values.size);
             let tiles_x = Math.floor(img.width / initial_values.size);
 
             for (let y of range(tiles_y)) {
                 for (let x of range(tiles_x)) {
-                    
+                    element_img(parent, initial_values)
                 }
             }
         }
