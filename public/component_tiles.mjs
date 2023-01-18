@@ -1,4 +1,3 @@
-import { component_empty } from "./component_empty.mjs";
 import { component_new_open } from "./component_new_open.mjs";
 import { element } from "./element.mjs";
 import { element_on } from "./element_on.mjs";
