@@ -9,7 +9,6 @@ export function component_edit(fields, initial_values_get, on_save, disable_name
     return function (parent, view) {
         let initial_values = initial_values_get();
         
-        let first = true;
         let field_controls = {};
         for (let field of fields) {
             assert(field.type === 'string');
@@ -17,12 +16,6 @@ export function component_edit(fields, initial_values_get, on_save, disable_name
                 .filter(f => f.id === field.id)
                 .length === 1);
             let f = element_input(parent, field.name);
-            if (first) {
-                first = false;
-                if (!initial_values) {
-                    f.focus();
-                }
-            }
             field_controls[field.id] = f;
             if (initial_values) {
                 if (initial_values.hasOwnProperty(field.id)) {
@@ -32,6 +25,8 @@ export function component_edit(fields, initial_values_get, on_save, disable_name
             if (field.id === 'name') {
                 if (disable_name) {
                     element_disable(f);
+                } else {
+                    f.focus();
                 }
             }
         }
