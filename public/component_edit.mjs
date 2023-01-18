@@ -10,14 +10,7 @@ import { property_get } from "./property_get.mjs";
 
 export function component_edit(fields, prefix, id_initial) {
     return function (parent, view) {
-        let initial_values = {};
-        let stored = local_storage_object_get(prefix + id_initial);
-        if (stored) {
-            initial_values = stored;
-        }
-        if (id_initial) {
-            initial_values.name = id_initial;
-        }
+        let initial_values = initial_values_get(prefix, id_initial);
         
         let first = true;
         let field_controls = {};
@@ -49,6 +42,18 @@ export function component_edit(fields, prefix, id_initial) {
             parent, 'Save', () => on_save({field_controls, prefix, view}));
         button_back(parent, view);
     }
+}
+
+function initial_values_get(prefix, id_initial) {
+    let initial_values = {};
+    let stored = local_storage_object_get(prefix + id_initial);
+    if (stored) {
+        initial_values = stored;
+    }
+    if (id_initial) {
+        initial_values.name = id_initial;
+    }
+    return initial_values;
 }
 
 function on_save(args) {
