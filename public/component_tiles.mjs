@@ -37,7 +37,7 @@ export function component_tiles(parent, view) {
 
             let img_fields = [
                 {
-                    id: 'id',
+                    id: 'name',
                     name: 'Name',
                     type: 'string',
                 },
