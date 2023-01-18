@@ -3,8 +3,8 @@ import { button_back } from "./button_back.mjs";
 import { default_values } from "./default_values.mjs";
 import { element_button_standard } from "./element_button_standard.mjs";
 import { element_input } from "./element_input.mjs";
+import { field_values_get } from "./field_values_get.mjs";
 import { local_storage_object_set } from "./local_storage_object_set.mjs";
-import { values_for_each } from "./values_for_each.mjs";
 
 export function component_new(fields, prefix) {
     return function (parent, view) {
@@ -39,15 +39,6 @@ export function component_new(fields, prefix) {
 function property_get(object, property_name) {
     assert(object.hasOwnProperty(property_name));
     return object[property_name];
-}
-
-function field_values_get(controls) {
-    let result = {};
-    values_for_each(controls, (value, key) => {
-        result[key] = value.value;
-    });
-    console.log({result})
-    return result;
 }
 
 
