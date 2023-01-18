@@ -18,6 +18,11 @@ export function component_tiles(parent, view) {
                 name: 'URL',
                 type: 'string',
             },
+            {
+                id: 'size',
+                name: 'Size',
+                type: 'string',
+            },
         ],
         component_empty
     );
