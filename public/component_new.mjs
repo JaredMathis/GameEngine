@@ -14,6 +14,7 @@ export function component_new(fields, prefix) {
         };
         for (let field of fields) {
             assert(field.type === 'string');
+            assert(fields.map(f => f.id === field.id).length === 1);
             let f = element_input(parent, field.name);
             if (first) {
                 first = false;
@@ -25,6 +26,7 @@ export function component_new(fields, prefix) {
             let field_values = field_values_get(field_controls);
             let key = prefix + property_get(field_values, 'name');
             let {name} = field_values;
+            console.log({field_controls, field_values})
             local_storage_object_set(
                 key, 
                 o => default_values(o, {

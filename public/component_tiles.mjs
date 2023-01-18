@@ -13,7 +13,7 @@ export function component_tiles(parent, view) {
                 type: 'string',
             },
             {
-                id: 'name',
+                id: 'id',
                 name: 'URL',
                 type: 'string',
             },
