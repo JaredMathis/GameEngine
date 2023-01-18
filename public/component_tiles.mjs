@@ -1,11 +1,9 @@
 import { component_edit } from "./component_edit.mjs";
-import { component_edit_local_storage } from "./component_edit_local_storage.mjs";
 import { component_new_open } from "./component_new_open.mjs";
 import { element_img } from "./element_img.mjs";
 import { element_on_click } from "./element_on_click.mjs";
 import { image_on_load_hidden } from "./image_on_load_hidden.mjs";
 import { local_storage_object_prefixed_save } from "./local_storage_object_prefixed_save.mjs";
-import { local_storage_object_set } from "./local_storage_object_set.mjs";
 import { range } from "./range.mjs";
 import { tiles_prefix } from "./tiles_prefix.mjs";
 import { view_set_get } from "./view_set_get.mjs";
