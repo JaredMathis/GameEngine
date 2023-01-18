@@ -23,6 +23,11 @@ function component_tiles(parent, view) {
                 name: 'Name of Tile Set',
                 type: 'string', 
             },
+            { 
+                id: 'name', 
+                name: 'URL',
+                type: 'string', 
+            },
         ]
         );
 }
