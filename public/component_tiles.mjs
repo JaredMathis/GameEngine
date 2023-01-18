@@ -4,6 +4,7 @@ import { component_new_open } from "./component_new_open.mjs";
 import { element_img } from "./element_img.mjs";
 import { element_on_click } from "./element_on_click.mjs";
 import { image_on_load_hidden } from "./image_on_load_hidden.mjs";
+import { local_storage_object_prefixed_save } from "./local_storage_object_prefixed_save.mjs";
 import { local_storage_object_set } from "./local_storage_object_set.mjs";
 import { range } from "./range.mjs";
 import { tiles_prefix } from "./tiles_prefix.mjs";
@@ -70,7 +71,8 @@ export function component_tiles(parent, view) {
                             component_edit(
                                 img_fields,
                                 () => stored.tiles[id] || { id },
-                                () => local_storage_object_set(tiles_prefix() + stored.name, () => stored)
+                                () => local_storage_object_prefixed_save(
+                                    tiles_prefix(), stored)
                             )
                         )
                     )
