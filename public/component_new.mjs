@@ -5,7 +5,7 @@ import { element_input } from "./element_input.mjs";
 import { local_storage_object_set } from "./local_storage_object_set.mjs";
 import { values_for_each } from "./values_for_each.mjs";
 
-export function component_new(fields) {
+export function component_new(fields, prefix) {
     return function (parent, view) {
         let first = true;
         let field_controls = {

@@ -16,7 +16,7 @@ export function component_game(parent, view) {
         view, 
         'New', 
         component_new(
-            fields)
+            fields, prefix)
     );
     let games = games_get();
     if (list_empty_not(games)) {
