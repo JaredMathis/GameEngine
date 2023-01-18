@@ -1,3 +1,4 @@
+import { assert } from "./assert.mjs";
 import { button_back } from "./button_back.mjs";
 import { default_values } from "./default_values.mjs";
 import { element_button_standard } from "./element_button_standard.mjs";
@@ -47,12 +48,6 @@ function field_values_get(controls) {
     });
     console.log({result})
     return result;
-}
-
-function assert(b) {
-    if (!b) {
-        throw new Error('Assertion error');
-    }
 }
 
 
