@@ -10,7 +10,7 @@ export function local_storage_object_set(key, transform) {
         }
         current = transform(current);
         let result = JSON.stringify(current);
-        console.log({result})
+        console.log({key,result})
         return result;
     });
 }
