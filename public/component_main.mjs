@@ -1,3 +1,4 @@
+import { button_back } from "./button_back.mjs";
 import { component_new } from "./component_new.mjs";
 import { component_settings } from "./component_settings.mjs";
 import { element_button_standard } from "./element_button_standard.mjs";
@@ -14,6 +15,7 @@ export function component_main(parent, view) {
 }
 
 function component_open(parent, view) {
+    button_back(parent, view);
     let games = Object.keys(localStorage).filter(k => k.startsWith(game_prefix()));
     for (let game of games) {
         console.log(game)
