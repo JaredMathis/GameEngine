@@ -20,7 +20,8 @@ function component_open(parent, view) {
     let games = Object.keys(localStorage).filter(k => k.startsWith(game_prefix()));
 
     let choices = games.map(k => k.substring(game_prefix().length));
-    element_select(parent, choices);
+    let choose = element_select(parent, choices);
+    choose.focus();
 }
 
 

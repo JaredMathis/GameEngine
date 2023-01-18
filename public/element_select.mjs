@@ -8,4 +8,5 @@ export function element_select(parent, choices) {
         let o = element(s, 'option', choice);
         o.value = choice;
     }
+    return s;
 }
