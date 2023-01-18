@@ -2,11 +2,10 @@ import { button_back } from "./button_back.mjs";
 import { default_values } from "./default_values.mjs";
 import { element_button_standard } from "./element_button_standard.mjs";
 import { element_input } from "./element_input.mjs";
-import { game_prefix } from "./game_prefix.mjs";
 import { local_storage_object_set } from "./local_storage_object_set.mjs";
 import { values_for_each } from "./values_for_each.mjs";
 
-export function component_new(fields) {
+export function component_new(fields, key_get) {
     return function (parent, view) {
         let first = true;
         let field_controls = {
@@ -18,15 +17,16 @@ export function component_new(fields) {
                 first = false;
                 f.focus();
             }
-            field_controls[field.name] = f;
+            field_controls[field.id] = f;
         }
         element_button_standard(parent, 'New', () => {
             let field_values = field_values_get(field_controls);
             let key = key_get(field_values);
+            let {name} = field_values;
             local_storage_object_set(
                 key, 
                 o => default_values(o, {
-                    name: name.value
+                    name: name
                 })
             );
             view.pop();
@@ -40,6 +40,7 @@ function field_values_get(controls) {
     values_for_each(controls, (value, key) => {
         result[key] = value.value;
     });
+    console.log({result})
     return result;
 }
 
