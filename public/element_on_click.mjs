@@ -1,5 +1,6 @@
 export function element_on_click(button, on_click) {
-    button.addEventListener('click', async () => {
+    let event = 'click'
+    button.addEventListener(event, async () => {
         await on_click();
     });
 }
