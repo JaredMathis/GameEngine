@@ -51,8 +51,6 @@ export function component_edit(fields, prefix, id_initial) {
     }
 }
 
-
-
 function on_save(args) {
     let {field_controls, prefix, view} = args;
     let field_values = field_values_get(field_controls);
