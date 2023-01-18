@@ -33,7 +33,7 @@ export function component_new_open(
                         component_new(
                             fields, 
                             prefix,
-                            default_values)
+                            initial_values)
                     );
                     component_on_open(parent, view);
                 }));

@@ -5,7 +5,6 @@ import { element_input } from "./element_input.mjs";
 import { field_values_get } from "./field_values_get.mjs";
 import { local_storage_object_set } from "./local_storage_object_set.mjs";
 import { property_get } from "./property_get.mjs";
-import { default_values } from "./default_values.mjs";
 
 export function component_new(fields, prefix, initial_values) {
     return function (parent, view) {
@@ -34,7 +33,7 @@ export function component_new(fields, prefix, initial_values) {
             let key = prefix + property_get(field_values, 'name');
             local_storage_object_set(
                 key, 
-                o => default_values(o, field_values)
+                o => field_values
             );
             view.pop();
         });
