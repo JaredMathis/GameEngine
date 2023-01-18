@@ -1,8 +1,10 @@
 import { component_new_open } from "./component_new_open.mjs";
 import { element_img } from "./element_img.mjs";
+import { element_on_click } from "./element_on_click.mjs";
 import { image_on_load_hidden } from "./image_on_load_hidden.mjs";
 import { range } from "./range.mjs";
 import { tiles_prefix } from "./tiles_prefix.mjs";
+import { view_set_get } from "./view_set_get.mjs";
 
 export function component_tiles(parent, view) {
     component_new_open(
@@ -26,8 +28,8 @@ export function component_tiles(parent, view) {
                 type: 'string',
             },
         ],
-        async (parent, view, initial_values) => {
-            let {size, url} = initial_values;
+        async (parent, view, stored) => {
+            let {size, url} = stored;
             let img = await image_on_load_hidden(parent, url);
             let tiles_y = Math.floor(img.height / size);
             let tiles_x = Math.floor(img.width / size);
@@ -39,6 +41,7 @@ export function component_tiles(parent, view) {
                     img.style.height = size;
                     img.style['object-fit'] = 'none';
                     img.style['object-position'] = `-${x * size}px -${y * size}px`;
+                    // element_on_click(img, view_set_get(view, ))
                 }
             }
         }
