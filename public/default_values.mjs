@@ -8,6 +8,6 @@ export function default_values(object, defaults) {
         if (typeof object[key] === 'object') {
             default_values(object[key], value);
         }
-        
     });
+    return object;
 }

@@ -10,11 +10,12 @@ export function component_new(parent, view) {
     name.focus();
     element_button_standard(parent, 'Create', () => {
         let key = game_prefix() + name.value;
-        local_storage_object_set(key, o => {
-            default_values(o, {
+        local_storage_object_set(
+            key, 
+            o => default_values(o, {
                 name: name.value
-            });
-        });
+            })
+        );
         view.pop();
     });
     button_back(parent, view);
