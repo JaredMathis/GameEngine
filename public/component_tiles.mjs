@@ -28,9 +28,20 @@ export function component_tiles(parent, view) {
             let img = await image_on_load_hidden(parent, initial_values);
             let tiles_y = Math.floor(img.height / initial_values.size);
             let tiles_x = Math.floor(img.width / initial_values.size);
-            console.log({tiles_x,tiles_y})
+
+            for (let y of range(tiles_y)) {
+
+            }
         }
     );
+}
+
+function range(limit) {
+    let result = [];
+    for (let i = 0; i < limit; i++) {
+        result.push(i)
+    }
+    return result;
 }
 
 
