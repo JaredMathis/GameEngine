@@ -1,5 +1,5 @@
-export function element_on(button, event, on_event) {
-    button.addEventListener(event, async () => {
+export function element_on(e, event, on_event) {
+    e.addEventListener(event, async () => {
         await on_event();
     });
 }

@@ -27,9 +27,8 @@ export function component_tiles(parent, view) {
             },
         ],
         async (parent, view, initial_values) => {
-            let url = initial_values.url;
-            await image_on_load(parent, url);
-
+            let img = await image_on_load(parent, initial_values.url);
+            img.hidden = true;
         }
     );
 }
