@@ -34,7 +34,10 @@ export function component_new_open(
                             prefix,
                             selected_key)
                     );
-                    component_on_open(parent, view, stored);
+                    component_on_open(
+                        parent, 
+                        view, 
+                        local_storage_object_get(prefix + selected_key));
                 }));
     }
 }
