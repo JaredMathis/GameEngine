@@ -70,9 +70,10 @@ export function component_tiles(parent, view) {
                             component_edit(
                                 img_fields,
                                 () => stored.tiles[id] || { id },
-                                () => local_storage_object_set()
+                                () => local_storage_object_set(tiles_prefix() + stored.name, () => stored)
                             )
                         )
+                    )
                 }
             }
         }
