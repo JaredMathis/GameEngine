@@ -17,8 +17,8 @@ export function component_game(parent, view) {
         'New', 
         component_new(fields, prefix)
     );
-    let games = games_get();
-    if (list_empty_not(games)) {
+    let entities = games_get();
+    if (list_empty_not(entities)) {
         component_button_view(
             parent, view, 'Open', component_open(prefix));
     }
