@@ -1,10 +1,8 @@
-import { component_choice_multiple } from "./component_choice_multiple.mjs";
-import { component_empty } from "./component_empty.mjs";
 import { component_new } from "./component_new.mjs";
+import { component_open } from "./component_open.mjs";
 import { component_settings } from "./component_settings.mjs";
 import { element_button_standard } from "./element_button_standard.mjs";
 import { games_get } from "./games_get.mjs";
-import { game_prefix } from "./game_prefix.mjs";
 import { list_empty_not } from "./list_empty_not.mjs";
 import { view_set_get } from "./view_set_get.mjs";
 
@@ -20,16 +18,6 @@ export function component_main(parent, view) {
 
     element_button_standard(
         parent, 'Settings', view_set_get(view, component_settings));
-}
-
-function component_open(parent, view) {
-    let games = games_get();
-    const prefix = game_prefix();
-    let choices = games.map(k => k.substring(prefix.length));
-
-    let local_storage_key = 'selected_game';
-    let next_screen = component_empty;
-    component_choice_multiple(parent, choices, local_storage_key, view, next_screen);
 }
 
 
