@@ -45,7 +45,8 @@ export function component_edit(fields, prefix, id_initial) {
                 }
             }
         }
-        element_button_standard(parent, 'Save', () => on_save({field_controls, prefix, view}));
+        element_button_standard(
+            parent, 'Save', () => on_save({field_controls, prefix, view}));
         button_back(parent, view);
     }
 }
