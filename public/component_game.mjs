@@ -10,12 +10,15 @@ export function component_game(parent, view) {
     let fields = [
         { id: 'name', name: 'Name of Game', type: 'string', },
     ]
+    component_new_open(parent, view, fields);
+}
+function component_new_open(parent, view, fields) {
     component_button_view(
-        parent, 
-        view, 
-        'New', 
+        parent,
+        view,
+        'New',
         component_new(
-            fields, 
+            fields,
             field_values => game_prefix() + field_values.name)
     );
     let games = games_get();
@@ -25,3 +28,4 @@ export function component_game(parent, view) {
     }
     button_back(parent, view);
 }
+
