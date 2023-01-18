@@ -7,7 +7,8 @@ export function component_game(parent, view) {
     component_new_open(
         parent, 
         view, 
-        game_prefix(), [
+        game_prefix(), 
+        [
             { id: 'name', name: 'Name of Game', type: 'string', },
         ],
         (parent, view, stored) => {
