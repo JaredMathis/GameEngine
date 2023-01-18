@@ -2,7 +2,6 @@ import { button_back } from "./button_back.mjs";
 import { component_new } from "./component_new.mjs";
 import { component_settings } from "./component_settings.mjs";
 import { element_button_standard } from "./element_button_standard.mjs";
-import { element_input } from "./element_input.mjs";
 import { element_select } from "./element_select.mjs";
 import { game_prefix } from "./game_prefix.mjs";
 import { view_set } from "./view_set.mjs";
