@@ -76,9 +76,9 @@ export function component_tiles(parent, view) {
 }
 
 
-function component_edit_local_storage_property(img_fields, stored, id) {
+function component_edit_local_storage_property(parent, stored, id) {
     return component_edit(
-        img_fields,
+        parent,
         () => stored.tiles[id] || { name: id },
         (value_new) => {
             stored.tiles[id] = value_new;
