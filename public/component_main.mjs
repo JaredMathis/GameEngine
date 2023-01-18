@@ -23,8 +23,8 @@ export function component_main(parent, view) {
 
 function component_open(parent, view) {
     button_back(parent, view);
-    const prefix = game_prefix();
     let games = games_get();
+    const prefix = game_prefix();
     let choices = games.map(k => k.substring(prefix.length));
     let choose = element_select(parent, choices);
     choose.focus();
