@@ -1,7 +1,6 @@
-import { local_storage_get } from "./local_storage_get.mjs";
-import { local_storage_key_settings_font_size } from "./local_storage_key_settings_font_size.mjs";
+import { element_style_font_size_generic } from "./element_style_font_size_generic.mjs";
 
 export function element_style_font_size_standard(e) {
-    e.style.fontSize = (4 * parseFloat(local_storage_get( local_storage_key_settings_font_size, 1))) + 'vh';
+    element_style_font_size_generic(e, 4);
 }
 
