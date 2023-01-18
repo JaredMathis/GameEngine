@@ -24,7 +24,8 @@ export function component_new_open(
                     button_back(parent, view);
                     const selected_key = localStorage
                         .getItem(local_storage_key_selected_get(prefix));
-                    const selected = localStorage.getItem(prefix + selected_key);
+                    const actual_key = prefix + selected_key;
+                    const selected = localStorage.getItem(actual_key);
                     const stored = JSON.parse(selected);
                     component_button_view(
                         parent,

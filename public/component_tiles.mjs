@@ -1,3 +1,4 @@
+import { component_new } from "./component_new.mjs";
 import { component_new_open } from "./component_new_open.mjs";
 import { element_img } from "./element_img.mjs";
 import { element_on_click } from "./element_on_click.mjs";
@@ -34,6 +35,14 @@ export function component_tiles(parent, view) {
             let tiles_y = Math.floor(img.height / size);
             let tiles_x = Math.floor(img.width / size);
 
+            let img_fields = [
+                {
+                    id: 'tags',
+                    name: 'Tags',
+                    type: 'string',
+                },
+            ];
+
             for (let y of range(tiles_y)) {
                 for (let x of range(tiles_x)) {
                     let img = element_img(parent, url)
@@ -41,11 +50,14 @@ export function component_tiles(parent, view) {
                     img.style.height = size;
                     img.style['object-fit'] = 'none';
                     img.style['object-position'] = `-${x * size}px -${y * size}px`;
-                    component_new(
-                        fields, 
-                        prefix,
-                        initial_values)
-                    // element_on_click(img, view_set_get(view, ))
+                    
+                    element_on_click(
+                        img, 
+                        component_new(
+                            img_fields, 
+                            tiles_prefix() + stored.name,
+                            initial_values)
+                        )
                 }
             }
         }
