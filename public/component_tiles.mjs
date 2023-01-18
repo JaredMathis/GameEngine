@@ -33,7 +33,7 @@ export function component_tiles(parent, view) {
 
             for (let y of range(tiles_y)) {
                 for (let x of range(tiles_x)) {
-                    element_img(parent, initial_values)
+                    element_img(parent, initial_values.url)
                 }
             }
         }
