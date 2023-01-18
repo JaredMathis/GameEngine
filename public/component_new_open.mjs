@@ -35,7 +35,7 @@ export function component_new_open(
                             prefix,
                             initial_values)
                     );
-                    component_on_open(parent, view);
+                    component_on_open(parent, view, initial_values);
                 }));
     }
 }
