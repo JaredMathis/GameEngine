@@ -4,7 +4,7 @@ import { component_settings } from "./component_settings.mjs";
 import { element_button_standard } from "./element_button_standard.mjs";
 import { element_select } from "./element_select.mjs";
 import { game_prefix } from "./game_prefix.mjs";
-import { list_empty } from "./list_empty.mjs";
+import { list_empty_not } from "./list_empty_not.mjs";
 import { view_set } from "./view_set.mjs";
 
 export function component_main(parent, view) {
@@ -33,9 +33,6 @@ function component_open(parent, view) {
     })
 }
 
-function list_empty_not(list) {
-    return !list_empty(list);
-}
 function games_get() {
     const prefix = game_prefix();
     return Object
