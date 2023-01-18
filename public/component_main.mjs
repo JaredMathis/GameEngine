@@ -28,7 +28,7 @@ function component_open(parent, view) {
     const prefix = game_prefix();
     let choices = games.map(k => k.substring(prefix.length));
     let choose = element_select(parent, choices);
-    element_button_standard(parent, 'Open', () => {
+    element_button_standard(parent, 'Choose', () => {
         local_storage_set('game_selected', current => choose.value)
     })
     choose.focus();
