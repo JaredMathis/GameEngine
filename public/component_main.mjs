@@ -26,16 +26,19 @@ function component_open(parent, view) {
     let games = games_get();
     const prefix = game_prefix();
     let choices = games.map(k => k.substring(prefix.length));
-    let on_choose = () => {
 
-    }
-    let local_storage_key = 'game_selected'
+    let local_storage_key = 'game_selected';
+    let next_screen = component_empty;
     let choose = element_select(parent, choices);
     element_button_standard(parent, 'Choose', () => {
         local_storage_set(local_storage_key, current => choose.value);
-        on_choose();
+        view_set(view, next_screen);
     })
     choose.focus();
+    button_back(parent, view);
+}
+
+function component_empty(parent, view) {
     button_back(parent, view);
 }
 
