@@ -28,7 +28,7 @@ function component_open(parent, view) {
     const prefix = game_prefix();
     let choices = games.map(k => k.substring(prefix.length));
 
-    let local_storage_key = 'game_selected';
+    let local_storage_key = 'selected_game';
     let next_screen = component_empty;
     let choose = element_select(parent, choices);
     element_button_standard(parent, 'Choose', () => {
