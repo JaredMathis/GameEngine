@@ -49,16 +49,20 @@ export function component_edit(fields, prefix, id_initial) {
         button_back(parent, view);
         
         function on_save() {
-            let field_values = field_values_get(field_controls);
-            let key = prefix + property_get(field_values, 'name');
-            local_storage_object_set(
-                key, 
-                o => field_values
-            );
-            view.pop();
+            on_save(field_controls, prefix, view);
         }
     }
 }
 
 
+
+function on_save(field_controls, prefix, view) {
+    let field_values = field_values_get(field_controls);
+    let key = prefix + property_get(field_values, 'name');
+    local_storage_object_set(
+        key,
+        o => field_values
+    );
+    view.pop();
+}
 
