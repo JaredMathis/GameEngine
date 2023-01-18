@@ -15,7 +15,7 @@ export function component_new_open(
         parent,
         view,
         'New',
-        component_edit(fields, prefix)
+        component_edit_local_storage(fields, prefix)
     );
     let entities = local_storage_entities_get(prefix);
     if (list_empty_not(entities)) {
