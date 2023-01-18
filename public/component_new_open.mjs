@@ -20,12 +20,10 @@ export function component_new_open(
             parent, view, 'Open', component_open(
                 prefix, 
                 function component_opened(parent, view) {
-                    button_back(parent, view);
                     const selected_key = localStorage
                         .getItem(local_storage_key_selected_get(prefix));
                     const selected = localStorage.getItem(prefix + selected_key);
                     const initial_values = JSON.parse(selected);
-                    console.log({initial_values, selected_key});
                     component_button_view(
                         parent,
                         view,
@@ -36,6 +34,7 @@ export function component_new_open(
                             initial_values)
                     );
                     component_on_open(parent, view);
+                    button_back(parent, view);
                 }));
     }
     button_back(parent, view);
