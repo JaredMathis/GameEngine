@@ -38,6 +38,11 @@ export function component_new(fields, prefix, id_initial) {
                     f.value = initial_values[field.id];
                 }
             }
+            if (field.id === 'name') {
+                if (id_initial) {
+                    element_disable(f);
+                }
+            }
         }
         element_button_standard(parent, 'Save', () => {
             let field_values = field_values_get(field_controls);
@@ -52,4 +57,8 @@ export function component_new(fields, prefix, id_initial) {
     }
 }
 
+
+function element_disable(f) {
+    f.setAttribute("disabled", "disabled");
+}
 
