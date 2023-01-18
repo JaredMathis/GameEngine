@@ -24,14 +24,16 @@ export function component_new_open(
                     const selected_key = localStorage
                         .getItem(local_storage_key_selected_get(prefix));
                     const selected = localStorage.getItem(prefix + selected_key);
-                    const default_values = JSON.parse(selected);
-                    console.log({default_values, selected_key});
+                    const initial_values = JSON.parse(selected);
+                    console.log({initial_values, selected_key});
                     component_button_view(
                         parent,
                         view,
                         'Edit',
-                        component_new(fields, prefix,
-                            default_values, 'Save')
+                        component_new(
+                            fields, 
+                            prefix,
+                            default_values)
                     );
                     component_on_open(parent, view);
                 }));
