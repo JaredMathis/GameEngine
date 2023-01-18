@@ -31,7 +31,9 @@ export function component_tiles(parent, view) {
             let tiles_x = Math.floor(img.width / initial_values.size);
 
             for (let y of range(tiles_y)) {
-
+                for (let x of range(tiles_x)) {
+                    
+                }
             }
         }
     );
