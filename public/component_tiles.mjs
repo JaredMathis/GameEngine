@@ -66,7 +66,7 @@ export function component_tiles(parent, view) {
                         img, 
                         view_set_get(
                             view, 
-                            component_edit_local_storage_property(img_fields, stored, id)
+                            component_edit_local_storage_property(img_fields, stored, 'tiles', id)
                         )
                     )
                 }
@@ -76,12 +76,12 @@ export function component_tiles(parent, view) {
 }
 
 
-function component_edit_local_storage_property(parent, stored, id) {
+function component_edit_local_storage_property(parent, stored, property_name, id) {
     return component_edit(
         parent,
-        () => stored.tiles[id] || { name: id },
+        () => stored[property_name][id] || { name: id },
         (value_new) => {
-            stored.tiles[id] = value_new;
+            stored[property_name][id] = value_new;
             local_storage_object_prefixed_save(
                 tiles_prefix(),
                 stored);
