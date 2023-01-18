@@ -11,10 +11,13 @@ export function component_game(parent, view) {
         { id: 'name', name: 'Name of Game', type: 'string', },
     ]
     const prefix = game_prefix();
+    component_new_open(parent, view, fields, prefix);
+}
+function component_new_open(parent, view, fields, prefix) {
     component_button_view(
-        parent, 
-        view, 
-        'New', 
+        parent,
+        view,
+        'New',
         component_new(fields, prefix)
     );
     let entities = games_get();
@@ -24,3 +27,4 @@ export function component_game(parent, view) {
     }
     button_back(parent, view);
 }
+
