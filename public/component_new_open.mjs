@@ -25,7 +25,7 @@ export function component_new_open(
                     const selected_key = localStorage
                         .getItem(local_storage_key_selected_get(prefix));
                     const selected = localStorage.getItem(prefix + selected_key);
-                    const initial_values = JSON.parse(selected);
+                    const stored = JSON.parse(selected);
                     component_button_view(
                         parent,
                         view,
@@ -33,9 +33,9 @@ export function component_new_open(
                         component_new(
                             fields, 
                             prefix,
-                            initial_values)
+                            stored)
                     );
-                    component_on_open(parent, view, initial_values);
+                    component_on_open(parent, view, stored);
                 }));
     }
 }

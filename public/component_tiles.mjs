@@ -41,6 +41,10 @@ export function component_tiles(parent, view) {
                     img.style.height = size;
                     img.style['object-fit'] = 'none';
                     img.style['object-position'] = `-${x * size}px -${y * size}px`;
+                    component_new(
+                        fields, 
+                        prefix,
+                        initial_values)
                     // element_on_click(img, view_set_get(view, ))
                 }
             }
