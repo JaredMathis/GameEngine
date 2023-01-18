@@ -10,16 +10,14 @@ export function component_game(parent, view) {
     let fields = [
         { id: 'name', name: 'Name of Game', type: 'string', },
     ]
-    component_new_open(parent, view, fields);
-}
-function component_new_open(parent, view, fields) {
+    const prefix = game_prefix();
     component_button_view(
-        parent,
-        view,
-        'New',
+        parent, 
+        view, 
+        'New', 
         component_new(
-            fields,
-            field_values => game_prefix() + field_values.name)
+            fields, 
+            field_values => prefix + field_values.name)
     );
     let games = games_get();
     if (list_empty_not(games)) {
@@ -28,4 +26,3 @@ function component_new_open(parent, view, fields) {
     }
     button_back(parent, view);
 }
-
