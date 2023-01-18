@@ -1,6 +1,7 @@
 import { component_empty } from "./component_empty.mjs";
 import { component_new_open } from "./component_new_open.mjs";
 import { element } from "./element.mjs";
+import { element_on } from "./element_on.mjs";
 import { tiles_prefix } from "./tiles_prefix.mjs";
 
 export function component_tiles(parent, view) {
@@ -25,9 +26,16 @@ export function component_tiles(parent, view) {
                 type: 'string',
             },
         ],
-        (parent, view, initial_values) => {
+        async (parent, view, initial_values) => {
+            let url = initial_values.url;
             let img = element(parent, 'img');
-            img.src = initial_values.url
+            img.src = url;
+            await new Promise(resolve => {
+                element_on(img, 'load', () => {
+                    resolve();
+                })
+            })
+
         }
     );
 }
