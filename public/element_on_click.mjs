@@ -3,9 +3,9 @@ export function element_on_click(button, on_click) {
     element_on(button, event, on_click);
 }
 
-function element_on(button, event, on_click) {
+function element_on(button, event, on_event) {
     button.addEventListener(event, async () => {
-        await on_click();
+        await on_event();
     });
 }
 
