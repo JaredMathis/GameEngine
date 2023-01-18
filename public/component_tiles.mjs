@@ -47,7 +47,7 @@ export function component_tiles(parent, view) {
                 },
                 {
                     id: 'tags',
-                    name: 'Tags',
+                    name: 'Tags (comma-separated)',
                     type: 'string',
                 },
             ];
