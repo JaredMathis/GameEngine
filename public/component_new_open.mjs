@@ -5,6 +5,7 @@ import { component_open } from "./component_open.mjs";
 import { list_empty_not } from "./list_empty_not.mjs";
 import { local_storage_entities_get } from "./local_storage_entities_get.mjs";
 import { local_storage_key_selected_get } from "./local_storage_key_selected_get.mjs";
+import { local_storage_object_get } from "./local_storage_object_get.mjs";
 
 export function component_new_open(
     parent, view, prefix, fields, component_on_open) {
@@ -25,8 +26,7 @@ export function component_new_open(
                     const selected_key = localStorage
                         .getItem(local_storage_key_selected_get(prefix));
                     const actual_key = prefix + selected_key;
-                    const selected = localStorage.getItem(actual_key);
-                    const stored = JSON.parse(selected);
+                    const stored = local_storage_object_get(actual_key);
                     component_button_view(
                         parent,
                         view,
@@ -40,4 +40,5 @@ export function component_new_open(
                 }));
     }
 }
+
 
