@@ -23,7 +23,6 @@ export function component_main(parent, view) {
 }
 
 function component_open(parent, view) {
-    button_back(parent, view);
     let games = games_get();
     const prefix = game_prefix();
     let choices = games.map(k => k.substring(prefix.length));
@@ -32,6 +31,7 @@ function component_open(parent, view) {
         local_storage_set('game_selected', current => choose.value)
     })
     choose.focus();
+    button_back(parent, view);
 }
 
 function games_get() {
