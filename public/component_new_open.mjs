@@ -1,6 +1,6 @@
 import { button_back } from "./button_back.mjs";
 import { component_button_view } from "./component_button_view.mjs";
-import { component_edit } from "./component_edit.mjs";
+import { noop } from "./noop.mjs";
 import { component_edit_local_storage } from "./component_edit_local_storage.mjs";
 import { component_open } from "./component_open.mjs";
 import { list_empty_not } from "./list_empty_not.mjs";
@@ -35,7 +35,7 @@ export function component_new_open(
                             prefix,
                             selected_key)
                     );
-                    component_on_open(
+                    (component_on_open || noop)(
                         parent, 
                         view, 
                         local_storage_object_get(prefix + selected_key));
