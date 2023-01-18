@@ -19,11 +19,15 @@ export function component_edit_local_storage(fields, prefix, id_initial) {
     }
 
     function on_save(field_values) {
-        let key = prefix + property_get(field_values, 'name');
-        local_storage_object_set(
-            key,
-            () => field_values
-        );
+        local_storage_object_prefixed_save(prefix, field_values);
     }
 
 }
+function local_storage_object_prefixed_save(prefix, value_new) {
+    let key = prefix + property_get(value_new, 'name');
+    local_storage_object_set(
+        key,
+        () => value_new
+    );
+}
+
