@@ -5,9 +5,8 @@ import { game_prefix } from "./game_prefix.mjs";
 
 export function component_open(parent, view) {
     let games = games_get();
-    const prefix = game_prefix();
-    let choices = games.map(k => k.substring(prefix.length));
-
+    let choices = games
+        .map(k => k.substring(game_prefix().length));
     component_choice_multiple(
         parent, choices, 'selected_game', view, component_empty);
 }
