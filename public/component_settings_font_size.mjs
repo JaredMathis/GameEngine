@@ -5,6 +5,7 @@ import { number_range_in } from "./number_range_in.mjs";
 import { button_back } from "./button_back.mjs";
 
 export function component_settings_font_size(parent, view) {
+    button_back(parent, view);
     let factor = 1.05;
     let buttons = [{
         text: 'Larger',
@@ -28,5 +29,4 @@ export function component_settings_font_size(parent, view) {
                 view.refresh();
             });
     }
-    button_back(parent, view);
 }

@@ -8,6 +8,7 @@ import { local_storage_key_selected_get } from "./local_storage_key_selected_get
 
 export function component_new_open(
     parent, view, prefix, fields, component_on_open) {
+    button_back(parent, view);
     component_button_view(
         parent,
         view,
@@ -20,6 +21,7 @@ export function component_new_open(
             parent, view, 'Open', component_open(
                 prefix, 
                 function component_opened(parent, view) {
+                    button_back(parent, view);
                     const selected_key = localStorage
                         .getItem(local_storage_key_selected_get(prefix));
                     const selected = localStorage.getItem(prefix + selected_key);
@@ -34,9 +36,7 @@ export function component_new_open(
                             initial_values)
                     );
                     component_on_open(parent, view);
-                    button_back(parent, view);
                 }));
     }
-    button_back(parent, view);
 }
 
