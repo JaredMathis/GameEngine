@@ -45,6 +45,9 @@ export function component_edit(fields, prefix, id_initial) {
                 }
             }
         }
+        element_button_standard(parent, 'Save', on_save);
+        button_back(parent, view);
+        
         function on_save() {
             let field_values = field_values_get(field_controls);
             let key = prefix + property_get(field_values, 'name');
@@ -54,8 +57,6 @@ export function component_edit(fields, prefix, id_initial) {
             );
             view.pop();
         }
-        element_button_standard(parent, 'Save', on_save);
-        button_back(parent, view);
     }
 }
 
