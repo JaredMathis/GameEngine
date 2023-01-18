@@ -5,7 +5,7 @@ export function default_values(object, defaults) {
         if (!object.hasOwnProperty(key)) {
             object[key] = value;
         }
-        if (typeof object[key] === 'object') {
+        if (typeof value === 'object') {
             default_values(object[key], value);
         }
     });
