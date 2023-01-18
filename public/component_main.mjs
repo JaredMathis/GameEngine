@@ -17,11 +17,11 @@ export function component_main(parent, view) {
 
 function component_open(parent, view) {
     button_back(parent, view);
+    const prefix = game_prefix();
     let games = Object
         .keys(localStorage)
-        .filter(k => k.startsWith(game_prefix()));
-
-    let choices = games.map(k => k.substring(game_prefix().length));
+        .filter(k => k.startsWith(prefix));
+    let choices = games.map(k => k.substring(prefix.length));
     let choose = element_select(parent, choices);
     choose.focus();
 }
