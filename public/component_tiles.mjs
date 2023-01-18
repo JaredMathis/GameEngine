@@ -68,9 +68,14 @@ export function component_tiles(parent, view) {
                             view, 
                             component_edit(
                                 img_fields,
-                                () => stored.tiles[id] || { id },
-                                () => local_storage_object_prefixed_save(
-                                    tiles_prefix(), stored)
+                                () => stored.tiles[id] || { name: id },
+                                (value_new) => {
+                                    stored.tiles[id] = value_new
+                                    local_storage_object_prefixed_save(
+                                        tiles_prefix(), 
+                                        stored)
+                                }, 
+                                true
                             )
                         )
                     )
