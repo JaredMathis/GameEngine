@@ -39,7 +39,12 @@ export function component_edit(fields, prefix, id_initial) {
             }
         }
         element_button_standard(
-            parent, 'Save', () => on_save({field_controls, prefix, view}));
+            parent, 'Save',
+            () => {
+                let field_values = field_values_get(field_controls);
+                on_save(field_values);
+                view.pop();
+            });
         button_back(parent, view);
     }
 }
@@ -56,14 +61,11 @@ function initial_values_get(prefix, id_initial) {
     return initial_values;
 }
 
-function on_save(args) {
-    let {field_controls, prefix, view} = args;
-    let field_values = field_values_get(field_controls);
+function on_save(prefix, field_values) {
     let key = prefix + property_get(field_values, 'name');
     local_storage_object_set(
         key,
         o => field_values
     );
-    view.pop();
 }
 
