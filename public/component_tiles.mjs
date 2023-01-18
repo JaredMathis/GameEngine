@@ -1,5 +1,6 @@
 import { component_new_open } from "./component_new_open.mjs";
 import { image_on_load_hidden } from "./image_on_load_hidden.mjs";
+import { range } from "./range.mjs";
 import { tiles_prefix } from "./tiles_prefix.mjs";
 
 export function component_tiles(parent, view) {
@@ -34,14 +35,6 @@ export function component_tiles(parent, view) {
             }
         }
     );
-}
-
-function range(limit) {
-    let result = [];
-    for (let i = 0; i < limit; i++) {
-        result.push(i)
-    }
-    return result;
 }
 
 
