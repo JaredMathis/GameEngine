@@ -8,7 +8,7 @@ import { local_storage_object_set } from "./local_storage_object_set.mjs";
 export function component_new(parent, view) {
     let name = element_input(parent, 'Name of Game');
     name.focus();
-    element_button_standard(parent, 'Create', () => {
+    element_button_standard(parent, 'New', () => {
         let key = game_prefix() + name.value;
         local_storage_object_set(
             key, 
