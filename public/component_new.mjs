@@ -4,21 +4,49 @@ import { element_button_standard } from "./element_button_standard.mjs";
 import { element_input } from "./element_input.mjs";
 import { game_prefix } from "./game_prefix.mjs";
 import { local_storage_object_set } from "./local_storage_object_set.mjs";
+import { values_for_each } from "./values_for_each.mjs";
 
-export function component_new(parent, view) {
-    let name = element_input(parent, 'Name of Game');
-    name.focus();
-    element_button_standard(parent, 'New', () => {
-        let key = game_prefix() + name.value;
-        local_storage_object_set(
-            key, 
-            o => default_values(o, {
-                name: name.value
-            })
-        );
-        view.pop();
+export function component_new(fields) {
+    return function (parent, view) {
+        let first = true;
+        let field_controls = {
+        };
+        for (let field of fields) {
+            assert(field.type === 'string');
+            let f = element_input(parent, field.name);
+            if (first) {
+                first = false;
+                f.focus();
+            }
+            field_controls[field.name] = f;
+        }
+        element_button_standard(parent, 'New', () => {
+            let field_values = field_values_get(field_controls);
+            let key = key_get(field_values);
+            local_storage_object_set(
+                key, 
+                o => default_values(o, {
+                    name: name.value
+                })
+            );
+            view.pop();
+        });
+        button_back(parent, view);
+    }
+}
+
+function field_values_get(controls) {
+    let result = {};
+    values_for_each(controls, (value, key) => {
+        result[key] = value.value;
     });
-    button_back(parent, view);
+    return result;
+}
+
+function assert(b) {
+    if (!b) {
+        throw new Error('Assertion error');
+    }
 }
 
 

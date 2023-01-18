@@ -6,7 +6,17 @@ import { games_get } from "./games_get.mjs";
 import { list_empty_not } from "./list_empty_not.mjs";
 
 export function component_game(parent, view) {
-    component_button_view(parent, view, 'New', component_new);
+    let fields = [
+        { name: 'Name of Game', type: 'string', },
+    ]
+    component_button_view(
+        parent, 
+        view, 
+        'New', 
+        component_new(
+            fields, 
+            field_values => game_prefix() + field_values.name)
+    );
     let games = games_get();
     if (list_empty_not(games)) {
         component_button_view(
