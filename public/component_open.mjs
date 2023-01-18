@@ -4,8 +4,7 @@ import { games_get } from "./games_get.mjs";
 import { game_prefix } from "./game_prefix.mjs";
 
 export function component_open(parent, view) {
-    let games = games_get();
-    let choices = games
+    let choices = games_get()
         .map(k => k.substring(game_prefix().length));
     component_choice_multiple(
         parent, choices, 'selected_game', view, component_empty);
