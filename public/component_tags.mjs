@@ -8,7 +8,7 @@ export function component_tags(parent, view) {
         tag_prefix(),
         [
             { id: 'name', name: 'Name of Tag', type: 'string', },
-            { id: 'name', name: 'Definition', type: 'string', },
+            { id: 'definition', name: 'Definition', type: 'string', },
         ]
     );
 }
