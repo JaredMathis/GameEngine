@@ -21,7 +21,7 @@ export function component_new(fields) {
         }
         element_button_standard(parent, 'New', () => {
             let field_values = field_values_get(field_controls);
-            let key = prefix + field_values.name;
+            let key = prefix + property_get(field_values, 'name');
             let {name} = field_values;
             local_storage_object_set(
                 key, 
@@ -33,6 +33,11 @@ export function component_new(fields) {
         });
         button_back(parent, view);
     }
+}
+
+function property_get(object, property_name) {
+    assert(object.hasOwnProperty(property_name));
+    return object[property_name];
 }
 
 function field_values_get(controls) {
