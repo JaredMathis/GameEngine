@@ -31,9 +31,6 @@ export function component_tiles(parent, view) {
         ],
         async (parent, view, stored) => {
             let {size, url} = stored;
-            if (!stored.tiles) {
-                stored.tiles = {};
-            }
             let img = await image_on_load_hidden(parent, url);
             let tiles_y = Math.floor(img.height / size);
             let tiles_x = Math.floor(img.width / size);

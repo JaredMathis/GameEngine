@@ -1,6 +1,7 @@
 import { component_new_open } from "./component_new_open.mjs";
 import { component_button_view } from "./component_button_view.mjs";
 import { game_prefix } from "./game_prefix.mjs";
+import { component_edit_local_storage_property } from "./component_edit_local_storage_property.mjs";
 
 export function component_game(parent, view) {
     component_new_open(

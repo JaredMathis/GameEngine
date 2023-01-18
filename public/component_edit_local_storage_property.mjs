@@ -5,7 +5,12 @@ export function component_edit_local_storage_property(
     field_infos, prefix, stored, property_name, id) {
     return component_edit(
         field_infos,
-        () => stored[property_name][id] || { name: id },
+        () => { 
+            if (!stored[property_name]) {
+                stored[property_name] = {};
+            }
+            return stored[property_name][id] || { name: id }
+        },
         (value_new) => {
             stored[property_name][id] = value_new;
             local_storage_object_prefixed_save(
