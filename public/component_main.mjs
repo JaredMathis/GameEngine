@@ -1,4 +1,5 @@
 import { button_back } from "./button_back.mjs";
+import { component_empty } from "./component_empty.mjs";
 import { component_new } from "./component_new.mjs";
 import { component_settings } from "./component_settings.mjs";
 import { element_button_standard } from "./element_button_standard.mjs";
@@ -41,10 +42,6 @@ function component_choice_multiple(parent, choices, local_storage_key, view, nex
         view_set(view, next_screen);
     });
     choose.focus();
-    button_back(parent, view);
-}
-
-function component_empty(parent, view) {
     button_back(parent, view);
 }
 
