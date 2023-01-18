@@ -7,19 +7,20 @@ import { game_prefix } from "./game_prefix.mjs";
 import { list_empty_not } from "./list_empty_not.mjs";
 import { local_storage_set } from "./local_storage_set.mjs";
 import { view_set } from "./view_set.mjs";
+import { view_set_get } from "./view_set_get.mjs";
 
 export function component_main(parent, view) {
     element_button_standard(
-        parent, 'New', view_set(view, component_new));
+        parent, 'New', view_set_get(view, component_new));
 
     let games = games_get();
     if (list_empty_not(games)) {
         element_button_standard(
-            parent, 'Open', view_set(view, component_open));
+            parent, 'Open', view_set_get(view, component_open));
     }
 
     element_button_standard(
-        parent, 'Settings', view_set(view, component_settings));
+        parent, 'Settings', view_set_get(view, component_settings));
 }
 
 function component_open(parent, view) {
