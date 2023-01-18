@@ -18,7 +18,11 @@ function component_tiles(parent, view) {
         parent, 
         view, 
         tiles_prefix(), [
-            { id: 'name', name: 'Name of Tile Set', type: 'string', },
+            { 
+                id: 'name', 
+                name: 'Name of Tile Set',
+                type: 'string', 
+            },
         ]
         );
 }
