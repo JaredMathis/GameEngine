@@ -58,10 +58,13 @@ export function component_tiles(parent, view) {
                     
                     element_on_click(
                         img, 
-                        component_new(
-                            img_fields, 
-                            tiles_prefix() + stored.name + "_",
-                            y + '_' + x)
+                        view_set_get(
+                            view, 
+                            component_new(
+                                img_fields, 
+                                tiles_prefix() + stored.name + "_",
+                                y + '_' + x)
+                            )
                         )
                 }
             }

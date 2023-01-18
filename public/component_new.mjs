@@ -34,7 +34,9 @@ export function component_new(fields, prefix, id_initial) {
             }
             field_controls[field.id] = f;
             if (initial_values) {
-                f.value = initial_values[field.id];
+                if (initial_values.hasOwnProperty(field.id)) {
+                    f.value = initial_values[field.id];
+                }
             }
         }
         element_button_standard(parent, 'Save', () => {
