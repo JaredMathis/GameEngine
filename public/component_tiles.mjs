@@ -1,9 +1,8 @@
-import { component_edit } from "./component_edit.mjs";
+import { component_edit_local_storage_property } from "./component_edit_local_storage_property.mjs";
 import { component_new_open } from "./component_new_open.mjs";
 import { element_img } from "./element_img.mjs";
 import { element_on_click } from "./element_on_click.mjs";
 import { image_on_load_hidden } from "./image_on_load_hidden.mjs";
-import { local_storage_object_prefixed_save } from "./local_storage_object_prefixed_save.mjs";
 import { range } from "./range.mjs";
 import { tiles_prefix } from "./tiles_prefix.mjs";
 import { view_set_get } from "./view_set_get.mjs";
@@ -76,17 +75,4 @@ export function component_tiles(parent, view) {
 }
 
 
-function component_edit_local_storage_property(parent, prefix, stored, property_name, id) {
-    return component_edit(
-        parent,
-        () => stored[property_name][id] || { name: id },
-        (value_new) => {
-            stored[property_name][id] = value_new;
-            local_storage_object_prefixed_save(
-                prefix,
-                stored);
-        },
-        true
-    );
-}
 
