@@ -34,7 +34,7 @@ function component_open(parent, view) {
     element_button_standard(parent, 'Choose', () => {
         local_storage_set(local_storage_key, current => choose.value);
         view_set(view, next_screen);
-    })
+    });
     choose.focus();
     button_back(parent, view);
 }
