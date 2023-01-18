@@ -28,14 +28,21 @@ export function component_tiles(parent, view) {
         ],
         async (parent, view, initial_values) => {
             let url = initial_values.url;
-            let img = element(parent, 'img');
-            img.src = url;
-            await new Promise(resolve => {
-                element_on(img, 'load', () => {
-                    resolve();
-                })
-            })
+            await image_on_load(parent, url);
 
         }
     );
 }
+async function image_on_load(parent, url) {
+    let img = element(parent, 'img');
+    img.src = url;
+    await new Promise((resolve, reject) => {
+        element_on(img, 'load', () => {
+            resolve();
+        });
+        element_on(img, 'error', () => {
+            reject();
+        });
+    });
+}
+
