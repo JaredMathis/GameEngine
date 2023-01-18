@@ -25,7 +25,6 @@ export function component_new_open(
                     button_back(parent, view);
                     const selected_key = localStorage
                         .getItem(local_storage_key_selected_get(prefix));
-                    const actual_key = prefix + selected_key;
                     component_button_view(
                         parent,
                         view,
@@ -33,7 +32,7 @@ export function component_new_open(
                         component_new(
                             fields, 
                             prefix,
-                            actual_key)
+                            selected_key)
                     );
                     component_on_open(parent, view, stored);
                 }));

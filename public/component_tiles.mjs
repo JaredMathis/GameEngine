@@ -37,6 +37,11 @@ export function component_tiles(parent, view) {
 
             let img_fields = [
                 {
+                    id: 'id',
+                    name: 'Name',
+                    type: 'string',
+                },
+                {
                     id: 'tags',
                     name: 'Tags',
                     type: 'string',
@@ -55,8 +60,8 @@ export function component_tiles(parent, view) {
                         img, 
                         component_new(
                             img_fields, 
-                            tiles_prefix() + stored.name,
-                            initial_values)
+                            tiles_prefix() + stored.name + "_",
+                            y + '_' + x)
                         )
                 }
             }

@@ -7,9 +7,9 @@ import { local_storage_object_get } from "./local_storage_object_get.mjs";
 import { local_storage_object_set } from "./local_storage_object_set.mjs";
 import { property_get } from "./property_get.mjs";
 
-export function component_new(fields, prefix, actual_key) {
+export function component_new(fields, prefix, id_initial) {
     return function (parent, view) {
-        let initial_values = local_storage_object_get(actual_key);
+        let initial_values = local_storage_object_get(prefix + id_initial);
         let first = true;
         let field_controls = {
         };
