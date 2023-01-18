@@ -1,6 +1,7 @@
 import { assert } from "./assert.mjs";
 import { button_back } from "./button_back.mjs";
 import { element_button_standard } from "./element_button_standard.mjs";
+import { element_disable } from "./element_disable.mjs";
 import { element_input } from "./element_input.mjs";
 import { field_values_get } from "./field_values_get.mjs";
 import { local_storage_object_get } from "./local_storage_object_get.mjs";
@@ -58,7 +59,4 @@ export function component_new(fields, prefix, id_initial) {
 }
 
 
-function element_disable(f) {
-    f.setAttribute("disabled", "disabled");
-}
 
