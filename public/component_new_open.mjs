@@ -21,7 +21,11 @@ export function component_new_open(
                 prefix, 
                 function component_opened(parent, view) {
                     button_back(parent, view);
-                    const default_values = JSON.parse(localStorage[local_storage_key_selected_get(prefix)]);
+                    const selected_key = localStorage
+                        .getItem(local_storage_key_selected_get(prefix));
+                    const selected = localStorage.getItem(prefix + selected_key);
+                    const default_values = JSON.parse(selected);
+                    console.log({default_values, selected_key});
                     component_button_view(
                         parent,
                         view,
