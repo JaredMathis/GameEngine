@@ -29,9 +29,10 @@ function component_open(parent, view) {
     let on_choose = () => {
 
     }
+    let local_storage_key = 'game_selected'
     let choose = element_select(parent, choices);
     element_button_standard(parent, 'Choose', () => {
-        local_storage_set('game_selected', current => choose.value);
+        local_storage_set(local_storage_key, current => choose.value);
         on_choose();
     })
     choose.focus();
