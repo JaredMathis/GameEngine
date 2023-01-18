@@ -1,3 +1,4 @@
+import { component_empty } from "./component_empty.mjs";
 import { component_new_open } from "./component_new_open.mjs";
 import { tiles_prefix } from "./tiles_prefix.mjs";
 
@@ -17,6 +18,7 @@ export function component_tiles(parent, view) {
                 name: 'URL',
                 type: 'string',
             },
-        ]
+        ],
+        component_empty
     );
 }
