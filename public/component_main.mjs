@@ -1,14 +1,11 @@
-import { button_back } from "./button_back.mjs";
+import { component_choice_multiple } from "./component_choice_multiple.mjs";
 import { component_empty } from "./component_empty.mjs";
 import { component_new } from "./component_new.mjs";
 import { component_settings } from "./component_settings.mjs";
 import { element_button_standard } from "./element_button_standard.mjs";
-import { element_select } from "./element_select.mjs";
 import { games_get } from "./games_get.mjs";
 import { game_prefix } from "./game_prefix.mjs";
 import { list_empty_not } from "./list_empty_not.mjs";
-import { local_storage_set } from "./local_storage_set.mjs";
-import { view_set } from "./view_set.mjs";
 import { view_set_get } from "./view_set_get.mjs";
 
 export function component_main(parent, view) {
@@ -33,16 +30,6 @@ function component_open(parent, view) {
     let local_storage_key = 'selected_game';
     let next_screen = component_empty;
     component_choice_multiple(parent, choices, local_storage_key, view, next_screen);
-}
-
-function component_choice_multiple(parent, choices, local_storage_key, view, next_screen) {
-    let choose = element_select(parent, choices);
-    element_button_standard(parent, 'Choose', () => {
-        local_storage_set(local_storage_key, current => choose.value);
-        view_set(view, next_screen);
-    });
-    choose.focus();
-    button_back(parent, view);
 }
 
 
