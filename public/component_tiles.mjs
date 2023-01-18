@@ -37,6 +37,8 @@ export function component_tiles(parent, view) {
                     let img = element_img(parent, url)
                     img.style.width = size;
                     img.style.height = size;
+                    img.style['object-fit'] = 'none';
+                    img.style['object-position'] = `-${x * size}px -${y * size}px`;
                 }
             }
         }
