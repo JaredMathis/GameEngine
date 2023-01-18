@@ -45,7 +45,7 @@ export function component_edit(fields, prefix, id_initial) {
                 }
             }
         }
-        element_button_standard(parent, 'Save', function on_save() {
+        function on_save() {
             let field_values = field_values_get(field_controls);
             let key = prefix + property_get(field_values, 'name');
             local_storage_object_set(
@@ -53,7 +53,8 @@ export function component_edit(fields, prefix, id_initial) {
                 o => field_values
             );
             view.pop();
-        });
+        }
+        element_button_standard(parent, 'Save', on_save);
         button_back(parent, view);
     }
 }
