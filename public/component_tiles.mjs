@@ -65,7 +65,8 @@ export function component_tiles(parent, view) {
                         img, 
                         view_set_get(
                             view, 
-                            component_edit_local_storage_property(img_fields, tiles_prefix(), stored, 'tiles', id)
+                            component_edit_local_storage_property(
+                                img_fields, tiles_prefix(), stored, 'tiles', id)
                         )
                     )
                 }
