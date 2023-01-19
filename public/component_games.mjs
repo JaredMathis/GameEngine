@@ -12,6 +12,7 @@ export function component_games(parent, view) {
         [
             { id: 'name', name: 'Name of Game', type: 'string', },
             { id: 'map_default', name: 'Default map tag', type: 'string', },
+            { id: 'tile_size', name: 'Tile size', type: 'string', },
         ],
         (parent, view, root) => {
             component_button_view(parent, view, 'Play!', component_game_play(root));

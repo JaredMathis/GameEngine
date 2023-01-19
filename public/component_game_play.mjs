@@ -42,8 +42,8 @@ export function component_game_play(root) {
                     let ui = element(tile_row, 'span');
                     ui.style.position = 'relative';
                     ui.style.display = 'inline-block';
-                    ui.style.width = 32 + 'px';
-                    ui.style.height = 32 + 'px';
+                    ui.style.width = root.tile_size + 'px';
+                    ui.style.height = root.tile_size + 'px';
                     let tile = { x, y, ui, overlays: [map_background_tag] };
                     tiles.push(tile);
                     element_on_click(ui, () => {
