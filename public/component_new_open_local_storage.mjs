@@ -8,7 +8,7 @@ import { local_storage_entities_get } from "./local_storage_entities_get.mjs";
 import { local_storage_key_selected_get } from "./local_storage_key_selected_get.mjs";
 import { local_storage_object_get } from "./local_storage_object_get.mjs";
 
-export function component_new_open(
+export function component_new_open_local_storage(
     parent, view, prefix, fields, component_on_open) {
     
     let key_selected_get = () => localStorage
