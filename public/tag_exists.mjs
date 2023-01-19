@@ -51,11 +51,7 @@ export function tag_exists(
     expression = expression
         .replaceAll(` not `, ` ${not} `)
     
-    let names = tokens_key_not_get(expression, tokens_key);
-    let blob = {};
-    for (let n of names) {
-        blob[n] = false;
-    }
+    let blob = tokens_key_not_get(expression, tokens_key);
 
     let tags_for_value = game_object_tags_get(
         game_object, ancestors);
@@ -72,6 +68,10 @@ export function tag_exists(
 function tokens_key_not_get(expression, tokens_key) {
     let tokens = expression.split(' ');
     let names = tokens.filter(t => !tokens_key.includes(t));
-    return names;
+    let blob = {};
+    for (let n of names) {
+        blob[n] = false;
+    }
+    return blob;
 }
 
