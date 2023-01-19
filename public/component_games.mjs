@@ -75,8 +75,8 @@ function component_game_play(root) {
             let background = game_object_by_tag_get(
                 game_objects, tags, map_background_tag);
             let background_ancestors = game_object_ancestors_get(game_objects, background);
-
-            console.log({background, background_ancestors})
+            let background_tile_set = background_ancestors[background_ancestors.length - 2];
+            
             let tiles = [];
             for (let y in range(map.height)) {
                 for (let x in range(map.width)) {
