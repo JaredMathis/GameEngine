@@ -13,7 +13,6 @@ export function component_new_open_local_storage_property(
 
     let entities_get = () => stored[property_name];
     let on_new = () => {
-        console.log('here')
         return component_edit_local_storage_property(fields, prefix, stored, property_name);
     };
     let component_edit_get = () => component_edit_local_storage_property(
