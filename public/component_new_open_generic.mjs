@@ -30,7 +30,7 @@ export function component_new_open_generic(
             parent,
             view,
             'Edit',
-            component_edit_get()
+            component_edit_get(entity)
         );
         (component_on_open || noop)(
             parent,

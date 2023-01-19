@@ -11,8 +11,8 @@ export function component_new_open_local_storage_property(
     let on_new = () => {
         return component_edit_local_storage_property(fields, prefix, stored, property_name);
     };
-    let component_edit_get = () => component_edit_local_storage_property(
-        fields, prefix, stored, property_name, undefined, true);
+    let component_edit_get = (entity) => component_edit_local_storage_property(
+        fields, prefix, stored, property_name, entity.name, true);
     let entity;
     let entity_get = () => entity
     let component_open_get = (component_opened) => { 
