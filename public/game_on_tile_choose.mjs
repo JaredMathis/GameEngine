@@ -1,12 +1,8 @@
 import { component_button_view } from "./component_button_view.mjs";
 import { game_prefix } from "./game_prefix.mjs";
 import { component_new_open_local_storage_property } from "./component_new_open_local_storage_property.mjs";
-import { noop } from "./noop.mjs";
 
 export function game_on_tile_choose(parent, view, stored) {
-
-
-    
     let field_infos = [
         { id: 'name', name: 'Name', type: 'string' },
         { id: 'requirement', name: 'Requirement', type: 'string' },
@@ -18,7 +14,7 @@ export function game_on_tile_choose(parent, view, stored) {
         'On Tile Choose',
         function on_tile_choose(parent, view) {
             component_new_open_local_storage_property(
-                parent, view, game_prefix(), stored, 'on_tile_choose', field_infos, noop
+                parent, view, game_prefix(), stored, 'on_tile_choose', field_infos, undefined, true
             )
         }
         );

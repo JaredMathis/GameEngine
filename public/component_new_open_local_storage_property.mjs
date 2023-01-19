@@ -4,7 +4,7 @@ import { component_open_generic } from "./component_open_generic.mjs";
 import { property_get } from "./property_get.mjs";
 
 export function component_new_open_local_storage_property(
-    parent, view, prefix, stored, property_name, fields, component_on_open) {
+    parent, view, prefix, stored, property_name, fields, component_on_open, edit_immediately) {
 
     let entities_get = () => Object.keys(stored[property_name] || {});
     let on_new = () => {
@@ -18,11 +18,13 @@ export function component_new_open_local_storage_property(
         return component_open_generic(
             entities_get, 
             value => entity_name = value,
-            component_opened);
+            edit_immediately 
+                ? (parent, view) => component_edit_get(entity_get())(parent, view) 
+                : component_opened);
         };
 
     component_new_open_generic(
-        parent, view, component_on_open, on_new, entities_get, component_open_get, component_edit_get, entity_get);
+        parent, view, component_on_open, on_new, entities_get, component_open_get, component_edit_get, entity_get, edit_immediately);
 }
 
 
