@@ -35,8 +35,9 @@ export function component_game_play(root) {
             for (let y in range(map.height)) {
                 let tile_row = element_div(parent);
                 for (let x in range(map.width)) {
+                    let map_background_tag = map.background;
                     let ui = element(tile_row, 'span');
-                    let tile = { x, y, ui, overlays: [] };
+                    let tile = { x, y, ui, overlays: [map_background_tag] };
                     tiles.push(tile);
                     element_on_click(ui, () => {
                         values_for_each(game.on_tile_choose, on_tile_choose => {
@@ -44,7 +45,6 @@ export function component_game_play(root) {
 
                         });
                     });
-                    let map_background_tag = map.background;
                     let background = game_object_by_tag_get(
                         game_objects, tags, map_background_tag);
                     let background_ancestors = game_object_ancestors_get(
