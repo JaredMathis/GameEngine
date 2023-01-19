@@ -4,6 +4,8 @@ import { list_single } from "./list_single.mjs";
 export function tag_exists(tags_all, ancestors, game_object, tag) {
     let parenthesis_left = '(';
     let parenthesis_right = ')';
+    let and = '&&';
+    let or = '||';
 
     let expression = tag;
 
@@ -17,9 +19,9 @@ export function tag_exists(tags_all, ancestors, game_object, tag) {
     }
 
     expression = expression
-        .replaceAll(` and `, ` && `) 
+        .replaceAll(` and `, ` ${and} `) 
     expression = expression
-        .replaceAll(` or `, ` || `)
+        .replaceAll(` or `, ` ${or} `)
     
     let tokens = expression.split(' ');
     let tokens_key = ['']
