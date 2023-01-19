@@ -13,6 +13,7 @@ import { list_last } from "./list_last.mjs";
 import { img_from_tile_set } from "./img_from_tile_set.mjs";
 import { element_div } from "./element_div.mjs";
 import { element } from "./element.mjs";
+import { element_on_click } from "./element_on_click.mjs";
 
 export function component_games(parent, view) {
     component_new_open_local_storage(
@@ -86,6 +87,9 @@ function component_game_play(root) {
                 let tile_row = element_div(parent);
                 for (let x in range(map.width)) {
                     let tile = element(tile_row, 'span');
+                    element_on_click(tile, () => {
+                        // values_for_each(game.on_tile_choose,
+                    })
                     img_from_tile_set(
                         tile, background_tile_set, background_x, background_y);
                 }
