@@ -40,11 +40,7 @@ export function component_game_play(root) {
                 let tile_row = element_div(parent);
                 for (let x in range(map.width)) {
                     let map_background_tag = map.background;
-                    let ui = element(tile_row, 'span');
-                    ui.style.position = 'relative';
-                    ui.style.display = 'inline-block';
-                    ui.style.width = root.tile_size + 'px';
-                    ui.style.height = root.tile_size + 'px';
+                    let ui = img_container(tile_row, root.tile_size);
                     let tile = { x, y, ui, overlays: [map_background_tag] };
                     tiles.push(tile);
                     element_on_click(ui, () => {
@@ -92,5 +88,14 @@ export function component_game_play(root) {
             map.tiles = tiles;
         });
     };
+}
+
+function img_container(parent, size) {
+    let ui = element(parent, 'span');
+    ui.style.position = 'relative';
+    ui.style.display = 'inline-block';
+    ui.style.width = size + 'px';
+    ui.style.height = size + 'px';
+    return ui;
 }
 
