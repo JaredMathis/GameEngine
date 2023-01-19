@@ -52,7 +52,5 @@ export function tag_exists(
         expression = expression.replaceAll(key, value)
     })
 
-    console.log({blob, expression, tag, game_object})
-
     return eval(expression);
 }
