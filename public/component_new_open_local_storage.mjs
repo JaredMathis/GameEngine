@@ -21,6 +21,10 @@ export function component_new_open_local_storage(
         prefix,
         key_selected_get());
     let entity_get = () => local_storage_object_get(prefix + key_selected_get())
+    let component_open_get = () => component_open_local_storage(
+        prefix, 
+        component_opened,
+    );
 
     button_back(parent, view);
     component_button_view(
@@ -35,10 +39,7 @@ export function component_new_open_local_storage(
             parent, 
             view, 
             'Open', 
-            component_open_local_storage(
-                prefix, 
-                component_opened,
-            )
+            component_open_get(),
         );
     }
 
