@@ -2,7 +2,8 @@ import { game_object_tags_get } from "./game_object_tags_get.mjs";
 import { list_single } from "./list_single.mjs";
 import { values_for_each } from "./values_for_each.mjs";
 
-export function tag_exists(tags_all, ancestors, game_object, tag) {
+export function tag_exists(
+    tags_all, ancestors, game_object, tag) {
     let parenthesis_left = '(';
     let parenthesis_right = ')';
     let and = '&&';
