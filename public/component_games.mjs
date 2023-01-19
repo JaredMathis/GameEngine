@@ -71,7 +71,9 @@ function component_game_play(root) {
         // console.log({map_default});
 
         values_for_each(game.maps, map => {
-            console.log({map})
+            let map_background_tag = map.background;
+            let background = game_object_by_tag_get(game_objects, tags, map_background_tag);
+            console.log({background})
             let tiles = [];
             for (let y in range(map.height)) {
                 for (let x in range(map.width)) {
