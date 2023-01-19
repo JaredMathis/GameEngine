@@ -103,6 +103,7 @@ function range(limit) {
 }
 
 function game_objects_by_tag_get(game_objects, tag) {
+    let result = [];
     values_recursively_for_each(game_objects, value => {
         if (value.tags) {
             let {tags} = value;
@@ -112,6 +113,7 @@ function game_objects_by_tag_get(game_objects, tag) {
             }
         }
     });
+    return result;
 }
 
 function game_object_by_tag_get(game_objects, tag) {
