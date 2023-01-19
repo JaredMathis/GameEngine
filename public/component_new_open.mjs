@@ -20,7 +20,7 @@ export function component_new_open(
         fields, 
         prefix,
         key_selected_get());
-    // let entity_get = key => 
+    let entity_get = () => local_storage_object_get(prefix + key_selected_get())
 
     button_back(parent, view);
     component_button_view(
@@ -48,7 +48,7 @@ export function component_new_open(
                     (component_on_open || noop)(
                         parent, 
                         view, 
-                        local_storage_object_get(prefix + key_selected_get()));
+                        entity_get());
                 }));
     }
 }
