@@ -99,6 +99,22 @@ function game_turn_next(game) {
         }
     }
 
-    let {player1} = game.players;
-    player1.tags_added.push('player_current');
+    let pc = 'player_current'
+
+    let {player1, player2} = game.players;
+    if (player1.tags_added.includes(pc)) {
+        game_turn_player_from_to(pc, player1, player2);
+    } else {
+        game_turn_player_from_to(pc, player2, player1);
+    }
+}
+
+function game_turn_player_from_to(pc, a, b) {
+    list_item_remove(a.tags_added, pc);
+    b.tags_added.push(pc);
+}
+
+function list_item_remove(list, item) {
+    let index = list.indexOf(item);
+    list.splice(index, 1);
 }
