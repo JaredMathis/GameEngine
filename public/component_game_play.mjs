@@ -11,6 +11,7 @@ import { range } from "./range.mjs";
 import { local_storage_entities_get } from "./local_storage_entities_get.mjs";
 import { game_object_ancestors_get } from "./game_object_ancestors_get.mjs";
 import { game_object_by_tag_get } from "./game_object_by_tag_get.mjs";
+import { game_object_tags_get } from "./game_object_tags_get.mjs";
 
 export function component_game_play(root) {
     return function (parent, view) {
@@ -44,7 +45,12 @@ export function component_game_play(root) {
                             let requirement_tag = on_tile_choose.requirement;
                             let overlays = tile.overlays.map(o => game_object_by_tag_get(
                                 game_objects, tags, o));
-                            console.log({overlays});
+                            let overlay_tags = overlays.map(o => 
+                                game_object_tags_get(
+                                    o, game_object_ancestors_get(game_objects, o)
+                                )
+                            );
+                            console.log({overlay_tags});
                         });
                     });
                     for (let o of tile.overlays) {
