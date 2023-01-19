@@ -42,17 +42,21 @@ export function component_game_play(root) {
                     element_on_click(ui, () => {
                         values_for_each(game.on_tile_choose, on_tile_choose => {
                             let requirement_tag = on_tile_choose.requirement;
-
+                            let overlays = tile.overlays.map(o => game_object_by_tag_get(
+                                game_objects, tags, o));
+                            console.log({overlays});
                         });
                     });
-                    let background = game_object_by_tag_get(
-                        game_objects, tags, map_background_tag);
-                    let background_ancestors = game_object_ancestors_get(
-                        game_objects, background);
-                    let background_tile_set = background_ancestors[background_ancestors.length - 2];
-                    let [background_y, background_x] = background.name.split('_');
-                    img_from_tile_set(
-                        ui, background_tile_set, background_x, background_y);
+                    for (let o of tile.overlays) {
+                        let background = game_object_by_tag_get(
+                            game_objects, tags, o);
+                        let background_ancestors = game_object_ancestors_get(
+                            game_objects, background);
+                        let background_tile_set = background_ancestors[background_ancestors.length - 2];
+                        let [background_y, background_x] = background.name.split('_');
+                        img_from_tile_set(
+                            ui, background_tile_set, background_x, background_y);
+                    }
                 }
             }
 
