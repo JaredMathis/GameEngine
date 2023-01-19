@@ -3,7 +3,6 @@ import { values_for_each } from "./values_for_each.mjs";
 import { tiles_prefix } from "./tiles_prefix.mjs";
 import { tag_prefix } from "./tag_prefix.mjs";
 import { element_div } from "./element_div.mjs";
-import { element } from "./element.mjs";
 import { element_on_click } from "./element_on_click.mjs";
 import { copy } from "./copy.mjs";
 import { range } from "./range.mjs";
@@ -13,6 +12,7 @@ import { game_object_by_tag_get } from "./game_object_by_tag_get.mjs";
 import { game_object_tags_get } from "./game_object_tags_get.mjs";
 import { img_from_tag } from "./img_from_tag.mjs";
 import { tag_exists } from "./tag_exists.mjs";
+import { img_container } from "./img_container.mjs";
 
 export function component_game_play(root) {
     return function (parent, view) {
@@ -90,12 +90,4 @@ export function component_game_play(root) {
     };
 }
 
-function img_container(parent, size) {
-    let ui = element(parent, 'span');
-    ui.style.position = 'relative';
-    ui.style.display = 'inline-block';
-    ui.style.width = size + 'px';
-    ui.style.height = size + 'px';
-    return ui;
-}
 
