@@ -37,21 +37,23 @@ export function component_new_open(
             'Open', 
             component_open(
                 prefix, 
-                function component_opened(parent, view) {
-                    button_back(parent, view);
-                    component_button_view(
-                        parent,
-                        view,
-                        'Edit',
-                        component_edit_get()
-                    );
-                    (component_on_open || noop)(
-                        parent, 
-                        view, 
-                        entity_get());
-                }
+                component_opened,
             )
         );
+    }
+
+    function component_opened(parent, view) {
+        button_back(parent, view);
+        component_button_view(
+            parent,
+            view,
+            'Edit',
+            component_edit_get()
+        );
+        (component_on_open || noop)(
+            parent, 
+            view, 
+            entity_get());
     }
 }
 
