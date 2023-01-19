@@ -1,6 +1,7 @@
 import { component_edit_local_storage_property } from "./component_edit_local_storage_property.mjs";
 import { component_new_open_generic } from "./component_new_open_generic.mjs";
 import { component_open_generic } from "./component_open_generic.mjs";
+import { local_storage_object_set } from "./local_storage_object_set.mjs";
 import { property_get } from "./property_get.mjs";
 
 export function component_new_open_local_storage_property(
@@ -18,6 +19,10 @@ export function component_new_open_local_storage_property(
         return component_open_generic(
             entities_get, 
             value => entity_name = value,
+            value => { 
+                delete entity[property_name][value]; 
+                local_storage_object_set(prefix + root.name, current => root);
+            },
             edit_immediately 
                 ? (parent, view) => component_edit_get(entity_get())(parent, view) 
                 : component_opened);
