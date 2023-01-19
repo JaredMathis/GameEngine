@@ -7,13 +7,14 @@ import { local_storage_entity_keys_get } from "./local_storage_entity_keys_get.m
 import { values_for_each } from "./values_for_each.mjs";
 import { tiles_prefix } from "./tiles_prefix.mjs";
 import { local_storage_object_get } from "./local_storage_object_get.mjs";
-import { assert } from "./assert.mjs";
 import { tag_prefix } from "./tag_prefix.mjs";
 import { img_from_tile_set } from "./img_from_tile_set.mjs";
 import { element_div } from "./element_div.mjs";
 import { element } from "./element.mjs";
 import { element_on_click } from "./element_on_click.mjs";
 import { copy } from "./copy.mjs";
+import { list_single } from "./list_single.mjs";
+import { range } from "./range.mjs";
 
 export function component_games(parent, view) {
     component_new_open_local_storage(
@@ -104,13 +105,6 @@ function local_storage_entities_get(prefix) {
     return tile_sets;
 }
 
-function range(limit) {
-    let result = [];
-    for (let i = 0; i < limit; i++) {
-        result.push(i)
-    }
-    return result;
-}
 function game_object_ancestors_get(game_objects, object) {
     let result = [];
     values_recursively_for_each(game_objects, (value, ancestors) => {
@@ -140,11 +134,6 @@ function game_objects_by_tag_get(game_objects, tags_all, tag) {
 
 function game_object_by_tag_get(game_objects, tags, tag) {
     return list_single(game_objects_by_tag_get(game_objects, tags, tag));
-}
-
-function list_single(list) {
-    assert(list.length === 1);
-    return list[0];
 }
 
 function values_recursively_for_each(object, for_each, ancestors) {
