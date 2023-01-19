@@ -20,28 +20,25 @@ export function tag_exists(
     let expression = ` ${tag} `;
 
 
-    // let changed = true; 
-    // for (let i of range(100)) {
-    //     changed = false;
 
-    //     let before = expression;
-
-    //     let after = expression;
-    //     if (after !== before) {
-    //         changed = true;
-    //     }
-    //     if (!changed) {
-    //         break;
-    //     }
-    // }
-
-    let matches = tags_all.filter(t => t.name === tag);
-    if (matches.length > 1) {
-        throw new Error('Multiple tags matched ' + tag);
-    }
-    if (matches.length === 1) {
-        expression = expression
-            .replaceAll(tag, `${parenthesis_left} ${matches[0].definition} ${parenthesis_right}`)
+    let changed = true; 
+    for (let i of range(100)) {
+        changed = false;
+        let blob = tokens_key_not_get(expression, tokens_key);
+        values_for_each(blob, (value, key) => {
+            let matches = tags_all.filter(t => t.name === key);
+            if (matches.length > 1) {
+                throw new Error('Multiple tags matched ' + key);
+            }
+            if (matches.length === 1) {
+                expression = expression
+                    .replaceAll(tag, `${parenthesis_left} ${matches[0].definition} ${parenthesis_right}`)
+                changed = true;
+            }
+        })
+        if (!changed) {
+            break;
+        }
     }
 
     expression = expression
