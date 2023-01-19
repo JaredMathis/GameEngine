@@ -62,8 +62,6 @@ export function tag_exists(
         expression = expression.replaceAll(key, value);
     })
 
-    console.log({versions, expression})
-
     return eval(expression);
 }
 function tokens_key_not_get(expression, tokens_key) {

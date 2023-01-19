@@ -47,7 +47,7 @@ export function component_game_play(root) {
                             let {requirement, action} = on_tile_choose;
                             let overlays = tile.overlays.map(o => game_object_by_tag_get(
                                 game_objects, tags, o));
-                            console.log({overlays})
+                            console.log({overlays, tile})
                             for (let o of overlays) {
                                 if (!tag_exists(
                                     tags, game_object_ancestors_get(game_objects, o), o, requirement)) {
