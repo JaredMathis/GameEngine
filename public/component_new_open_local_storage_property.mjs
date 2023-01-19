@@ -7,7 +7,7 @@ import { component_open_generic } from "./component_open_generic.mjs";
 export function component_new_open_local_storage_property(
     parent, view, prefix, stored, property_name, fields, component_on_open) {
 
-    let entities_get = () => stored[property_name] || [];
+    let entities_get = () => Object.keys(stored[property_name]) || [];
     let on_new = () => {
         return component_edit_local_storage_property(fields, prefix, stored, property_name);
     };

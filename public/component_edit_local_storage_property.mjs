@@ -16,7 +16,7 @@ export function component_edit_local_storage_property(
             return stored[property_name][id] || default_value
         },
         (value_new) => {
-            stored[property_name][id] = value_new;
+            stored[property_name][value_new.name] = value_new;
             local_storage_object_prefixed_save(
                 prefix,
                 stored);
