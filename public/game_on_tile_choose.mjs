@@ -1,6 +1,5 @@
-import { component_button_view } from "./component_button_view.mjs";
 import { game_prefix } from "./game_prefix.mjs";
-import { component_new_open_local_storage_property } from "./component_new_open_local_storage_property.mjs";
+import { component_button_property_child } from "./component_button_property_child.mjs";
 
 export function game_on_tile_choose(parent, view, stored) {
     let field_infos = [
@@ -12,17 +11,5 @@ export function game_on_tile_choose(parent, view, stored) {
     let property_name = 'on_tile_choose';
     let prefix = game_prefix();
     component_button_property_child(parent, view, title, prefix, stored, property_name, field_infos);
-}
-function component_button_property_child(parent, view, title, prefix, stored, property_name, field_infos) {
-    component_button_view(
-        parent,
-        view,
-        title,
-        function on_tile_choose(parent, view) {
-            component_new_open_local_storage_property(
-                parent, view, prefix, stored, property_name, field_infos, undefined, true
-            );
-        }
-    );
 }
 
