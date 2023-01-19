@@ -52,8 +52,8 @@ export function component_game_play(root) {
                             );
                             let action_parts = action.split(' ');
                             if (action_parts[0] === 'overlay') {
-                                console.log({overlay_tags});
                             }
+                            console.log({overlay_tags});
                         });
                     });
                     for (let o of tile.overlays) {
