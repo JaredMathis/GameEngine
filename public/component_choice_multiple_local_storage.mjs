@@ -6,11 +6,16 @@ import { view_set } from "./view_set.mjs";
 
 export function component_choice_multiple_local_storage(
     parent, choices, local_storage_key, view, next_screen) {
+        
     button_back(parent, view);
     let choose = element_select(parent, choices);
     element_button_standard(parent, 'Choose', () => {
-        local_storage_set(local_storage_key, current => choose.value);
+        on_choose();
         view_set(view, next_screen);
     });
     choose.focus();
+
+    function on_choose() {
+        local_storage_set(local_storage_key, current => choose.value);
+    }
 }
