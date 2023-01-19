@@ -106,7 +106,8 @@ function game_objects_by_tag_get(game_objects, tag) {
         if (value.tags) {
             let {tags} = value;
             if (tags) {
-                tag
+                let split = tags.split(',');
+                console.log({value, split});
             }
         }
     });
