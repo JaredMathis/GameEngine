@@ -16,7 +16,7 @@ export function component_new_open_local_storage_property(
         return component_edit_local_storage_property(fields, prefix, stored, property_name);
     };
     let component_edit_get = () => component_edit_local_storage_property(
-        fields, prefix, stored, property_name);
+        fields, prefix, stored, property_name, undefined, true);
     let entity_get = () => local_storage_object_get(prefix + key_selected_get())
     let component_open_get = (component_opened) => component_open_local_storage(
         prefix, 
