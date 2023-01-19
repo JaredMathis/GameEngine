@@ -7,13 +7,13 @@ export function component_open_local_storage(prefix, component_on_open) {
     return function (parent, view) {
         let choices = entities_get();
 
-        let select = component_choice_multiple_generic(
+        component_choice_multiple_generic(
             parent, view, choices, on_choose, component_on_open);
     
-        function on_choose() {
+        function on_choose(value) {
             local_storage_set(
                 local_storage_key_selected_get(prefix), 
-                current => select.value);
+                current => value);
         }
     }
 

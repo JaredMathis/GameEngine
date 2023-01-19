@@ -7,7 +7,7 @@ export function component_choice_multiple_generic(parent, view, choices, on_choo
     button_back(parent, view);
     let select = element_select(parent, choices);
     element_button_standard(parent, 'Choose', () => {
-        on_choose();
+        on_choose(select.value);
         view_set(view, next_screen);
     });
     select.focus();
