@@ -16,6 +16,10 @@ export function component_new_open(
 
     let entities_get = () => local_storage_entities_get(prefix);
     let on_new = () => component_edit_local_storage(fields, prefix);
+    let component_edit_get = () => component_edit_local_storage(
+        fields, 
+        prefix,
+        key_selected_get());
     // let entity_get = key => 
 
     button_back(parent, view);
@@ -39,10 +43,7 @@ export function component_new_open(
                         parent,
                         view,
                         'Edit',
-                        component_edit_local_storage(
-                            fields, 
-                            prefix,
-                            key_selected_get())
+                        component_edit_get()
                     );
                     (component_on_open || noop)(
                         parent, 
