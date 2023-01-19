@@ -20,7 +20,10 @@ export function component_new_open(
     let entities = local_storage_entities_get(prefix);
     if (list_empty_not(entities)) {
         component_button_view(
-            parent, view, 'Open', component_open(
+            parent, 
+            view, 
+            'Open', 
+            component_open(
                 prefix, 
                 function component_opened(parent, view) {
                     button_back(parent, view);
