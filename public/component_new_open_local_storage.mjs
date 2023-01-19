@@ -26,22 +26,7 @@ export function component_new_open_local_storage(
         component_opened,
     );
 
-    button_back(parent, view);
-    component_button_view(
-        parent,
-        view,
-        'New',
-        on_new,
-    );
-    let entities = entities_get();
-    if (list_empty_not(entities)) {
-        component_button_view(
-            parent, 
-            view, 
-            'Open', 
-            component_open_get(),
-        );
-    }
+    component_new_open_generic(parent, view, on_new, entities_get, component_open_get);
 
     function component_opened(parent, view) {
         component_button_view(
@@ -58,4 +43,22 @@ export function component_new_open_local_storage(
     }
 }
 
+function component_new_open_generic(parent, view, on_new, entities_get, component_open_get) {
+    button_back(parent, view);
+    component_button_view(
+        parent,
+        view,
+        'New',
+        on_new
+    );
+    let entities = entities_get();
+    if (list_empty_not(entities)) {
+        component_button_view(
+            parent,
+            view,
+            'Open',
+            component_open_get()
+        );
+    }
+}
 
