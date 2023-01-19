@@ -36,7 +36,8 @@ export function component_game_play(root) {
                 let tile_row = element_div(parent);
                 for (let x in range(map.width)) {
                     let ui = element(tile_row, 'span');
-                    tiles.push({x,y,ui});
+                    let tile = { x, y, ui, overlays: [] };
+                    tiles.push(tile);
                     element_on_click(ui, () => {
                         values_for_each(game.on_tile_choose, on_tile_choose => {
                             let requirement_tag = on_tile_choose.requirement;
