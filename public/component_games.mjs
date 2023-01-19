@@ -67,8 +67,8 @@ function component_game_play(root) {
         console.log({game_objects});
 
         let map_default_tag = game.map_default;
-        // let map_default = 
-        game_objects_by_tag_get(game_objects, tags, map_default_tag)
+        let map_default = game_object_by_tag_get(game_objects, tags, map_default_tag)
+        console.log({map_default});
 
         values_for_each(game.maps, map => {
             let tiles = [];
@@ -113,8 +113,6 @@ function game_objects_by_tag_get(game_objects, tags_all, tag) {
             let {tags} = value;
             if (tags) {
                 let split = tags.split(',');
-                console.log(split);
-
                 let final = list_single(split);
                 if (final === tag) {
                     result.push(value);
