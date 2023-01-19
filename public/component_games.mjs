@@ -9,6 +9,7 @@ import { tiles_prefix } from "./tiles_prefix.mjs";
 import { local_storage_object_get } from "./local_storage_object_get.mjs";
 import { assert } from "./assert.mjs";
 import { tag_prefix } from "./tag_prefix.mjs";
+import { list_last } from "./list_last.mjs";
 
 export function component_games(parent, view) {
     component_new_open_local_storage(
@@ -107,6 +108,15 @@ function range(limit) {
         result.push(i)
     }
     return result;
+}
+function game_object_parent_get(game_objects, object) {
+    let result = [];
+    values_recursively_for_each(game_objects, (value, ancestors) => {
+        if (value === object) {
+            result.push(list_last(ancestors));
+        }
+    });
+    return list_single(result);
 }
 
 function game_objects_by_tag_get(game_objects, tags_all, tag) {
