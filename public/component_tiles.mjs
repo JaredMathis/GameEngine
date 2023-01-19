@@ -32,8 +32,8 @@ export function component_tiles(parent, view) {
         async (parent, view, root) => {
             let {size, url} = root;
             let img = await image_on_load_hidden(parent, url);
-            let tiles_y = Math.floor(img.height / size);
-            let tiles_x = Math.floor(img.width / size);
+            let y_count = Math.floor(img.height / size);
+            let x_count = Math.floor(img.width / size);
 
             let img_fields = [
                 {
@@ -48,8 +48,8 @@ export function component_tiles(parent, view) {
                 },
             ];
 
-            for (let y of range(tiles_y)) {
-                for (let x of range(tiles_x)) {
+            for (let y of range(y_count)) {
+                for (let x of range(x_count)) {
                     let img = element_img(parent, url)
                     img.style.width = size;
                     img.style.height = size;
