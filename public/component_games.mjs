@@ -11,11 +11,10 @@ import { element_div } from "./element_div.mjs";
 import { element } from "./element.mjs";
 import { element_on_click } from "./element_on_click.mjs";
 import { copy } from "./copy.mjs";
-import { list_single } from "./list_single.mjs";
 import { range } from "./range.mjs";
 import { local_storage_entities_get } from "./local_storage_entities_get.mjs";
-import { game_objects_by_tag_get } from "./game_objects_by_tag_get.mjs";
 import { game_object_ancestors_get } from "./game_object_ancestors_get.mjs";
+import { game_object_by_tag_get } from "./game_object_by_tag_get.mjs";
 
 export function component_games(parent, view) {
     component_new_open_local_storage(
@@ -100,7 +99,4 @@ function component_game_play(root) {
     }
 }
 
-function game_object_by_tag_get(game_objects, tags, tag) {
-    return list_single(game_objects_by_tag_get(game_objects, tags, tag));
-}
 
