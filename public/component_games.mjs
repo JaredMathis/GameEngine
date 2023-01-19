@@ -59,7 +59,7 @@ function component_game_play(root) {
 
         let game = copy(root);
         
-        let tile_sets = newFunction();
+        let tile_sets = local_storage_entities_get();
 
         let tags = local_storage_entity_keys_get(tag_prefix());
 
@@ -89,8 +89,8 @@ function component_game_play(root) {
     }
 }
 
-function newFunction() {
-    let tile_keys = local_storage_entity_keys_get(tiles_prefix());
+function local_storage_entities_get(prefix) {
+    let tile_keys = local_storage_entity_keys_get(prefix);
     let tile_sets = tile_keys.map(key => local_storage_object_get(key));
     return tile_sets;
 }
