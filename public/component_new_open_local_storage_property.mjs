@@ -1,6 +1,4 @@
 import { component_edit_local_storage_property } from "./component_edit_local_storage_property.mjs";
-import { local_storage_key_selected_get } from "./local_storage_key_selected_get.mjs";
-import { local_storage_object_get } from "./local_storage_object_get.mjs";
 import { component_new_open_generic } from "./component_new_open_generic.mjs";
 import { component_open_generic } from "./component_open_generic.mjs";
 import { property_get } from "./property_get.mjs";
@@ -15,7 +13,7 @@ export function component_new_open_local_storage_property(
     let component_edit_get = (entity) => component_edit_local_storage_property(
         fields, prefix, stored, property_name, property_get(entity, 'name'), true);
     let entity_name;
-    let entity_get = () => entities_get()[entity_name]
+    let entity_get = () => stored[property_name][entity_name]
     let component_open_get = (component_opened) => { 
         return component_open_generic(
             entities_get, 
