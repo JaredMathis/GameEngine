@@ -9,17 +9,17 @@ export function component_open_local_storage(prefix, component_on_open) {
 
         component_choice_multiple_generic(
             parent, view, choices, on_choose, component_on_open);
-    
-        function on_choose(value) {
-            local_storage_set(
-                local_storage_key_selected_get(prefix), 
-                current => value);
-        }
     }
 
     function entities_get() {
         return local_storage_entities_get(prefix)
             .map(k => k.substring(prefix.length));
+    }
+    
+    function on_choose(value) {
+        local_storage_set(
+            local_storage_key_selected_get(prefix), 
+            current => value);
     }
 }
 
