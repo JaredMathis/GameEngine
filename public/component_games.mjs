@@ -102,7 +102,7 @@ function range(limit) {
 
 function game_object_by_tag_get(game_objects, tag) {
     values_recursively_get(game_objects, value => {
-
+        console.log('r',{value})
     });
 }
 
@@ -114,7 +114,7 @@ function values_recursively_get(object, for_each, ancestors) {
         for_each(value, ancestors);
         if (typeof value === typeof {}) {
             ancestors.push(value);
-            values_recursively_get(object, for_each, ancestors)
+            values_recursively_get(value, for_each, ancestors)
             ancestors.pop();
         }
     })
