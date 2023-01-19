@@ -1,4 +1,5 @@
 import { game_object_tags_get } from "./game_object_tags_get.mjs";
+import { range } from "./range.mjs";
 import { values_for_each } from "./values_for_each.mjs";
 
 export function tag_exists(
@@ -48,11 +49,22 @@ export function tag_exists(
     }
 
     values_for_each(blob, (value, key) => {
-        let before = expression;
         expression = expression.replaceAll(key, value);
-        let after = expression;
-        
     })
 
+    // let changed = true; 
+    // for (let i of range(100)) {
+    //     changed = false;
+
+    //     let before = expression;
+
+    //     let after = expression;
+    //     if (after !== before) {
+    //         changed = true;
+    //     }
+    //     if (!changed) {
+    //         break;
+    //     }
+    // }
     return eval(expression);
 }
