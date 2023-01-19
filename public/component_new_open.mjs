@@ -49,7 +49,9 @@ export function component_new_open(
                         parent, 
                         view, 
                         entity_get());
-                }));
+                }
+            )
+        );
     }
 }
 
