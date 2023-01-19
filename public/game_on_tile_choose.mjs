@@ -10,6 +10,7 @@ export function game_on_tile_choose(parent, view, stored) {
     let title = 'On Tile Choose';
     let property_name = 'on_tile_choose';
     let prefix = game_prefix();
-    component_button_property_child(parent, view, title, prefix, stored, property_name, field_infos);
+    component_button_property_child(
+        parent, view, title, prefix, stored, property_name, field_infos);
 }
 
