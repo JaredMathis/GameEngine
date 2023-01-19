@@ -14,6 +14,6 @@ export function game_objects_by_tag_get(game_objects, tags_all, tag) {
                 }
             }
         }
-    });
+    }, undefined, value => value instanceof HTMLElement);
     return result;
 }
