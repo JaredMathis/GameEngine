@@ -19,6 +19,22 @@ export function tag_exists(
 
     let expression = ` ${tag} `;
 
+
+    // let changed = true; 
+    // for (let i of range(100)) {
+    //     changed = false;
+
+    //     let before = expression;
+
+    //     let after = expression;
+    //     if (after !== before) {
+    //         changed = true;
+    //     }
+    //     if (!changed) {
+    //         break;
+    //     }
+    // }
+
     let matches = tags_all.filter(t => t.name === tag);
     if (matches.length > 1) {
         throw new Error('Multiple tags matched ' + tag);
@@ -35,8 +51,7 @@ export function tag_exists(
     expression = expression
         .replaceAll(` not `, ` ${not} `)
     
-    let tokens = expression.split(' ');
-    let names = tokens.filter(t => !tokens_key.includes(t));
+    let names = tokens_key_not_get(expression, tokens_key);
     let blob = {};
     for (let n of names) {
         blob[n] = false;
@@ -52,19 +67,11 @@ export function tag_exists(
         expression = expression.replaceAll(key, value);
     })
 
-    // let changed = true; 
-    // for (let i of range(100)) {
-    //     changed = false;
-
-    //     let before = expression;
-
-    //     let after = expression;
-    //     if (after !== before) {
-    //         changed = true;
-    //     }
-    //     if (!changed) {
-    //         break;
-    //     }
-    // }
     return eval(expression);
 }
+function tokens_key_not_get(expression, tokens_key) {
+    let tokens = expression.split(' ');
+    let names = tokens.filter(t => !tokens_key.includes(t));
+    return names;
+}
+
