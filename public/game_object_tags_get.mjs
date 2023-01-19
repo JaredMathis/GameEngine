@@ -6,9 +6,7 @@ export function game_object_tags_get(value, ancestors) {
     for (let v of values) {
         if (v.tags) {
             let { tags } = v;
-            if (tags) {
-                tags_for_value = tags.split(',');
-            }
+            tags_for_value = tags.split(',');
         }
     }
     return tags_for_value;
