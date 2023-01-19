@@ -52,8 +52,9 @@ export function component_game_play(root) {
                             );
                             let action_parts = action.split(' ');
                             if (action_parts[0] === 'overlay') {
-                                let overlay_tag = action_parts[1];
-                                tile.overlays.push(overlay_tag);
+                                let overlay_tag_get = action_parts[1];
+                                console.log(overlay_tag_get);
+                                // tile.overlays.push(overlay_tag);
                             }
                             console.log({overlay_tags});
                         });
