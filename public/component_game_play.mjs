@@ -52,19 +52,14 @@ export function component_game_play(root) {
                             );
                             let action_parts = action.split(' ');
                             if (action_parts[0] === 'overlay') {
+                                let overlay_tag = action_parts[1];
+                                tile.overlays.push(overlay_tag);
                             }
                             console.log({overlay_tags});
                         });
                     });
                     for (let o of tile.overlays) {
-                        let background = game_object_by_tag_get(
-                            game_objects, tags, o);
-                        let background_ancestors = game_object_ancestors_get(
-                            game_objects, background);
-                        let background_tile_set = background_ancestors[background_ancestors.length - 2];
-                        let [background_y, background_x] = background.name.split('_');
-                        img_from_tile_set(
-                            ui, background_tile_set, background_x, background_y);
+                        img_from_tag(parent, game_objects, tags, o);
                     }
                 }
             }
@@ -73,3 +68,14 @@ export function component_game_play(root) {
         });
     };
 }
+function img_from_tag(parent, game_objects, tags, tile_tag) {
+    let background = game_object_by_tag_get(
+        game_objects, tags, tile_tag);
+    let background_ancestors = game_object_ancestors_get(
+        game_objects, background);
+    let background_tile_set = background_ancestors[background_ancestors.length - 2];
+    let [background_y, background_x] = background.name.split('_');
+    img_from_tile_set(
+        parent, background_tile_set, background_x, background_y);
+}
+
