@@ -28,7 +28,7 @@ export function component_games(parent, view) {
                             { id: 'name', name: 'Name', type: 'string' },
                             { id: 'tags', name: 'Tags', type: 'string' },
                             { id: 'value', name: 'Value', type: 'string' },
-                        ], undefined);
+                        ]);
                 });
         }
         );
