@@ -11,14 +11,14 @@ import { local_storage_object_get } from "./local_storage_object_get.mjs";
 export function component_new_open(
     parent, view, prefix, fields, component_on_open) {
     
-    let entities_get = () => local_storage_entities_get(prefix)
-
+    let entities_get = () => local_storage_entities_get(prefix);
+    let on_new = () => component_edit_local_storage(fields, prefix);
     button_back(parent, view);
     component_button_view(
         parent,
         view,
         'New',
-        component_edit_local_storage(fields, prefix)
+        on_new,
     );
     let entities = entities_get();
     if (list_empty_not(entities)) {
