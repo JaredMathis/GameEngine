@@ -106,6 +106,16 @@ function game_object_by_tag_get(game_objects, tag) {
     });
 }
 
-function values_recursively_get(object, for_each) {
-    
+function values_recursively_get(object, for_each, ancestors) {
+    if (!ancestors) {
+        ancestors = [];
+    }
+    values_for_each(object, value => {
+        for_each(value, ancestors);
+        if (typeof value === typeof {}) {
+            ancestors.push(value);
+            values_recursively_get(object, for_each, ancestors)
+            ancestors.pop();
+        }
+    })
 }
