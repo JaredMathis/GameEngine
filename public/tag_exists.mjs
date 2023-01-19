@@ -19,8 +19,6 @@ export function tag_exists(
 
     let expression = ` ${tag} `;
 
-
-
     let changed = true; 
     for (let i of range(100)) {
         changed = false;
@@ -63,7 +61,7 @@ export function tag_exists(
     return eval(expression);
 }
 function tokens_key_not_get(expression, tokens_key) {
-    let tokens = expression.split(' ');
+    let tokens = expression.split(' ').filter(t => t.length >= 1);
     let names = tokens.filter(t => !tokens_key.includes(t));
     let blob = {};
     for (let n of names) {
