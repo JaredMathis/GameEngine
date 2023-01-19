@@ -2,6 +2,7 @@ import { component_new_open_local_storage } from "./component_new_open_local_sto
 import { game_prefix } from "./game_prefix.mjs";
 import { component_button_property_child } from "./component_button_property_child.mjs";
 import { component_button_view } from "./component_button_view.mjs";
+import { button_back } from "./button_back.mjs";
 
 export function component_games(parent, view) {
     component_new_open_local_storage(
@@ -47,6 +48,7 @@ export function component_games(parent, view) {
 
 function component_game_play(root) {
     return function (parent, view) {
+        button_back(parent, view);
         console.log('root');
     }
 }
