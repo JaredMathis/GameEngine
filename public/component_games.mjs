@@ -74,7 +74,9 @@ function component_game_play(root) {
             let map_background_tag = map.background;
             let background = game_object_by_tag_get(
                 game_objects, tags, map_background_tag);
-            console.log({background})
+            let background_ancestors = game_object_ancestors_get(game_objects, background);
+
+            console.log({background, background_ancestors})
             let tiles = [];
             for (let y in range(map.height)) {
                 for (let x in range(map.width)) {
@@ -109,11 +111,11 @@ function range(limit) {
     }
     return result;
 }
-function game_object_parent_get(game_objects, object) {
+function game_object_ancestors_get(game_objects, object) {
     let result = [];
     values_recursively_for_each(game_objects, (value, ancestors) => {
         if (value === object) {
-            result.push(list_last(ancestors));
+            result.push(ancestors.slice());
         }
     });
     return list_single(result);
