@@ -68,7 +68,7 @@ function component_game_play(root) {
 
         let map_default_tag = game.map_default;
         // let map_default = 
-        game_objects_by_tag_get(game_objects, map_default_tag)
+        game_objects_by_tag_get(game_objects, tags, map_default_tag)
 
         values_for_each(game.maps, map => {
             let tiles = [];
@@ -106,7 +106,7 @@ function range(limit) {
     return result;
 }
 
-function game_objects_by_tag_get(game_objects, tag) {
+function game_objects_by_tag_get(game_objects, tags_all, tag) {
     let result = [];
     values_recursively_for_each(game_objects, value => {
         if (value.tags) {
@@ -114,14 +114,19 @@ function game_objects_by_tag_get(game_objects, tag) {
             if (tags) {
                 let split = tags.split(',');
                 console.log(split);
+
+                let final = list_single(split);
+                if (final === tag) {
+                    result.push(value);
+                }
             }
         }
     });
     return result;
 }
 
-function game_object_by_tag_get(game_objects, tag) {
-    return list_single(game_objects_by_tag_get(game_objects, tag));
+function game_object_by_tag_get(game_objects, tags, tag) {
+    return list_single(game_objects_by_tag_get(game_objects, tags, tag));
 }
 
 function list_single(list) {
