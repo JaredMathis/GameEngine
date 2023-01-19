@@ -22,9 +22,7 @@ export function component_game_play(root) {
         let tags = local_storage_entities_get(tag_prefix());
         let game_objects = { tile_sets, game };
         
-        let {player1} = game.players;
-        player1.tags_added = [];
-        player1.tags_added.push('player_current');
+        game_turn_next(game);
 
         console.log({ game_objects, tags });
 
@@ -43,6 +41,7 @@ export function component_game_play(root) {
                     let tile = { x, y, ui, overlays: [map_background_tag] };
                     tiles.push(tile);
                     element_on_click(ui, () => {
+                        let requirement_met = false;
                         values_for_each(game.on_tile_choose, on_tile_choose => {
                             let {requirement, action} = on_tile_choose;
                             let overlays = tile.overlays.map(o => game_object_by_tag_get(
@@ -76,7 +75,10 @@ export function component_game_play(root) {
 
                                 tile.overlays.push(value);
                             }
+
+                            requirement_met = true;
                         });
+                        game_turn_next(game);
                     });
                     for (let o of tile.overlays) {
                         img_from_tag(ui, game_objects, tags, o);
@@ -90,3 +92,13 @@ export function component_game_play(root) {
 }
 
 
+function game_turn_next(game) {
+    for (let p of game.players) {
+        if (!p.tags_added) {
+            p.tags_added = [];
+        }
+    }
+
+    let {player1} = game.players;
+    player1.tags_added.push('player_current');
+}
