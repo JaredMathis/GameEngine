@@ -1,12 +1,9 @@
-import { button_back } from "./button_back.mjs";
-import { component_button_view } from "./component_button_view.mjs";
-import { noop } from "./noop.mjs";
 import { component_edit_local_storage } from "./component_edit_local_storage.mjs";
 import { component_open_local_storage } from "./component_open_local_storage.mjs";
-import { list_empty_not } from "./list_empty_not.mjs";
 import { local_storage_entities_get } from "./local_storage_entities_get.mjs";
 import { local_storage_key_selected_get } from "./local_storage_key_selected_get.mjs";
 import { local_storage_object_get } from "./local_storage_object_get.mjs";
+import { component_new_open_generic } from "./component_new_open_generic.mjs";
 
 export function component_new_open_local_storage(
     parent, view, prefix, fields, component_on_open) {
@@ -30,38 +27,4 @@ export function component_new_open_local_storage(
         parent, view, component_on_open, on_new, entities_get, component_open_get, component_edit_get, entity_get);
 }
 
-function component_new_open_generic(
-    parent, view, component_on_open, on_new, entities_get, component_open_get, component_edit_get, entity_get) {
-
-    button_back(parent, view);
-    component_button_view(
-        parent,
-        view,
-        'New',
-        on_new
-    );
-    let entities = entities_get();
-    if (list_empty_not(entities)) {
-        component_button_view(
-            parent,
-            view,
-            'Open',
-            component_open_get(component_opened)
-        );
-    }
-    
-    function component_opened(parent, view) {
-        button_back(parent, view);
-        component_button_view(
-            parent,
-            view,
-            'Edit',
-            component_edit_get()
-        );
-        (component_on_open || noop)(
-            parent, 
-            view, 
-            entity_get());
-    }
-}
 
