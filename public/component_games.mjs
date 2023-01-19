@@ -83,8 +83,9 @@ function component_game_play(root) {
             for (let y in range(map.height)) {
                 let tile_row = element_div(parent);
                 for (let x in range(map.width)) {
+                    let tile = element(parent, 'span');
                     img_from_tile_set(
-                        tile_row, background_tile_set, background_x, background_y);
+                        tiletile_row, background_tile_set, background_x, background_y);
                 }
             }
         });
