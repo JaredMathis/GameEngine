@@ -3,6 +3,11 @@ import { game_prefix } from "./game_prefix.mjs";
 import { component_button_property_child } from "./component_button_property_child.mjs";
 import { component_button_view } from "./component_button_view.mjs";
 import { button_back } from "./button_back.mjs";
+import { img_to_count } from "./img_to_count.mjs";
+import { local_storage_entities_get } from "./local_storage_entities_get.mjs";
+import { values_for_each } from "./values_for_each.mjs";
+import { tiles_prefix } from "./tiles_prefix.mjs";
+import { local_storage_object_get } from "./local_storage_object_get.mjs";
 
 export function component_games(parent, view) {
     component_new_open_local_storage(
@@ -52,7 +57,7 @@ function component_game_play(root) {
 
         let game = copy(root);
         
-        for (let map of game.maps) {
+        values_for_each(game.maps, map => {
             let tiles = [];
             for (let y in range(map.height)) {
                 for (let x in range(map.width)) {
@@ -60,7 +65,15 @@ function component_game_play(root) {
                 }
             }
             map.tiles = tiles;
+        });
+
+        for (let key of local_storage_entities_get(tiles_prefix())) {
+            let tiles = local_storage_object_get(key);
+            let {url, size} = tiles;
+            let {y_count, x_count} = await img_to_count(parent, url, size);
+            console.log({tiles})
         }
+
 
     }
 }
