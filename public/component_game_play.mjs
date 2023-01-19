@@ -18,17 +18,19 @@ export function component_game_play(root) {
         button_back(parent, view);
 
         let game = copy(root);
-
         let tile_sets = local_storage_entities_get(tiles_prefix());
         let tags = local_storage_entities_get(tag_prefix());
-
         let game_objects = { tile_sets, game };
+        
+        let {player1} = game.players;
+        player1.tags_added = [];
+        player1.tags_added.push('player_current');
 
-        console.log({ game_objects });
+        console.log({ game_objects, tags });
 
         let map_default_tag = game.map_default;
         let map_default = game_object_by_tag_get(game_objects, tags, map_default_tag);
-        // console.log({map_default});
+
         values_for_each(game.maps, map => {
 
             let tiles = [];
@@ -53,7 +55,11 @@ export function component_game_play(root) {
                             let action_parts = action.split(' ');
                             if (action_parts[0] === 'overlay') {
                                 let overlay_tag_get = action_parts[1];
-                                console.log(overlay_tag_get);
+
+                                let r = game_object_by_tag_get(
+                                    game_objects, tags, overlay_tag_get)
+
+                                console.log(r);
                                 // tile.overlays.push(overlay_tag);
                             }
                             console.log({overlay_tags});
