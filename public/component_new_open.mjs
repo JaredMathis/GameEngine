@@ -12,7 +12,7 @@ export function component_new_open(
     parent, view, prefix, fields, component_on_open) {
     
     let key_selected_get = () => localStorage
-    .getItem(local_storage_key_selected_get(prefix));
+        .getItem(local_storage_key_selected_get(prefix));
 
     let entities_get = () => local_storage_entities_get(prefix);
     let on_new = () => component_edit_local_storage(fields, prefix);
