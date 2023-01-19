@@ -1,8 +1,8 @@
-import { component_new_open } from "./component_new_open.mjs";
+import { component_new_open_local_storage } from "./component_new_open_local_storage.mjs";
 import { tag_prefix } from "./tag_prefix.mjs";
 
 export function component_tags(parent, view) {
-    component_new_open(
+    component_new_open_local_storage(
         parent,
         view,
         tag_prefix(),
