@@ -2,7 +2,7 @@ import { component_choice_multiple } from "./component_choice_multiple.mjs";
 import { local_storage_entities_get } from "./local_storage_entities_get.mjs";
 import { local_storage_key_selected_get } from "./local_storage_key_selected_get.mjs";
 
-export function component_open(prefix, component_on_open) {
+export function component_open_local_storage(prefix, component_on_open) {
     return function (parent, view) {
         let choices = local_storage_entities_get(prefix)
             .map(k => k.substring(prefix.length));
