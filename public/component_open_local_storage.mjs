@@ -4,12 +4,7 @@ import { local_storage_key_selected_get } from "./local_storage_key_selected_get
 import { local_storage_set } from "./local_storage_set.mjs";
 
 export function component_open_local_storage(prefix, component_on_open) {
-    return function (parent, view) {
-        let choices = entities_get();
-
-        component_choice_multiple_generic(
-            parent, view, choices, on_choose, component_on_open);
-    }
+    return component_open_generic(entities_get, on_choose, component_on_open)
 
     function entities_get() {
         return local_storage_entities_get(prefix)
@@ -21,5 +16,14 @@ export function component_open_local_storage(prefix, component_on_open) {
             local_storage_key_selected_get(prefix), 
             current => value);
     }
+}
+
+function component_open_generic(entities_get, on_choose, component_on_open) {
+    return function (parent, view) {
+        let choices = entities_get();
+
+        component_choice_multiple_generic(
+            parent, view, choices, on_choose, component_on_open);
+    };
 }
 
