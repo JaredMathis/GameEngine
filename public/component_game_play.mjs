@@ -64,7 +64,6 @@ export function component_game_play(root) {
                                 }
                             }
                             console.log('Requirement met', {
-                                o, 
                                 requirement,
                                 name:on_tile_choose.name
                             })
