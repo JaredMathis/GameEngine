@@ -30,6 +30,11 @@ export function tag_exists(tags_all, ancestors, game_object, tag) {
         .replaceAll(` or `, ` ${or} `)
     
     let tokens = expression.split(' ');
+    let names = tokens.filter(t => !tokens_key.includes(t));
+    let blob = {};
+    for (let n of names) {
+        blob[n] = false;
+    }
 
     let tags_for_value = game_object_tags_get(
         game_object, ancestors);
