@@ -38,6 +38,9 @@ export function tag_exists(tags_all, ancestors, game_object, tag) {
 
     let tags_for_value = game_object_tags_get(
         game_object, ancestors);
+    for (let n of tags_for_value) {
+        blob[n] = true;
+    }
     if (tags_for_value.length) {
         if (tags_for_value.includes(tag)) {
             return true;
