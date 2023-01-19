@@ -43,7 +43,6 @@ export function component_new_open(
     }
 
     function component_opened(parent, view) {
-        button_back(parent, view);
         component_button_view(
             parent,
             view,
@@ -54,6 +53,7 @@ export function component_new_open(
             parent, 
             view, 
             entity_get());
+        button_back(parent, view);
     }
 }
 
