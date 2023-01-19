@@ -1,7 +1,7 @@
 import { component_edit_local_storage_property } from "./component_edit_local_storage_property.mjs";
 import { component_new_open_local_storage } from "./component_new_open_local_storage.mjs";
-import { element_img } from "./element_img.mjs";
 import { element_on_click } from "./element_on_click.mjs";
+import { img_from_tile_set } from "./img_from_tile_set.mjs";
 import { img_to_count } from "./img_to_count.mjs";
 import { range } from "./range.mjs";
 import { tiles_prefix } from "./tiles_prefix.mjs";
@@ -48,11 +48,7 @@ export function component_tiles(parent, view) {
 
             for (let y of range(y_count)) {
                 for (let x of range(x_count)) {
-                    let img = element_img(parent, url)
-                    img.style.width = size;
-                    img.style.height = size;
-                    img.style['object-fit'] = 'none';
-                    img.style['object-position'] = `-${x * size}px -${y * size}px`;
+                    let img = img_from_tile_set(parent, root, x, y);
                     
                     let id = y + '_' + x;
 
@@ -69,6 +65,8 @@ export function component_tiles(parent, view) {
         }
     );
 }
+
+
 
 
 
