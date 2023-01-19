@@ -53,12 +53,13 @@ function component_game_play(root) {
         let game = copy(root);
         
         for (let map of game.maps) {
-            map.tiles = [];
+            let tiles = [];
             for (let y in range(map.height)) {
                 for (let x in range(map.width)) {
-                
+                    tiles.push({x,y});
                 }
             }
+            map.tiles = tiles;
         }
 
     }
