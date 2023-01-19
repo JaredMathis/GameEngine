@@ -66,7 +66,10 @@ function component_game_play(root) {
             let tiles = [];
             for (let y in range(map.height)) {
                 for (let x in range(map.width)) {
-                    tiles.push({x,y});
+                    tiles.push({
+                        x,
+                        y,
+                    });
                 }
             }
             map.tiles = tiles;
