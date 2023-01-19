@@ -40,6 +40,10 @@ export function component_game_play(root) {
                 for (let x in range(map.width)) {
                     let map_background_tag = map.background;
                     let ui = element(tile_row, 'span');
+                    ui.style.position = 'relative';
+                    ui.style.display = 'inline-block';
+                    ui.style.width = 32 + 'px';
+                    ui.style.height = 32 + 'px';
                     let tile = { x, y, ui, overlays: [map_background_tag] };
                     tiles.push(tile);
                     element_on_click(ui, () => {
