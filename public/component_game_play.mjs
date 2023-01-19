@@ -56,10 +56,13 @@ export function component_game_play(root) {
                             if (action_parts[0] === 'overlay') {
                                 let overlay_tag_get = action_parts[1];
 
-                                let r = game_object_by_tag_get(
+                                let value_get = game_object_by_tag_get(
                                     game_objects, tags, overlay_tag_get)
 
-                                console.log(r);
+                                let {value} = value_get;
+
+                                img_from_tag(ui, game_objects, tags, value);
+
                                 // tile.overlays.push(overlay_tag);
                             }
                             console.log({overlay_tags});
