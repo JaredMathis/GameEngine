@@ -93,11 +93,11 @@ export function component_game_play(root) {
 
 
 function game_turn_next(game) {
-    for (let p of game.players) {
+    values_for_each(game.players, p => {
         if (!p.tags_added) {
             p.tags_added = [];
         }
-    }
+    })
 
     let pc = 'player_current'
 
