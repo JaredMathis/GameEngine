@@ -49,6 +49,29 @@ export function component_games(parent, view) {
 function component_game_play(root) {
     return function (parent, view) {
         button_back(parent, view);
-        console.log({root});
+
+        let game = copy(root);
+        
+        for (let map of game.maps) {
+            map.tiles = [];
+            for (let y in range(map.height)) {
+                for (let x in range(map.width)) {
+                
+                }
+            }
+        }
+
     }
+}
+
+function copy(object) {
+    return JSON.parse(JSON.stringify(object));
+}
+
+function range(limit) {
+    let result = [];
+    for (let i = 0; i < limit; i++) {
+        result.push(i)
+    }
+    return result;
 }
