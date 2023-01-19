@@ -59,7 +59,7 @@ export function component_game_play(root) {
                         });
                     });
                     for (let o of tile.overlays) {
-                        img_from_tag(parent, game_objects, tags, o);
+                        img_from_tag(ui, game_objects, tags, o);
                     }
                 }
             }
