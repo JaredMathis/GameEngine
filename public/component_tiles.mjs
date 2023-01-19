@@ -31,9 +31,7 @@ export function component_tiles(parent, view) {
         ],
         async (parent, view, root) => {
             let {size, url} = root;
-            let img = await image_on_load_hidden(parent, url);
-            let y_count = Math.floor(img.height / size);
-            let x_count = Math.floor(img.width / size);
+            let { y_count, x_count } = await img_to_count(parent, url, size);
 
             let img_fields = [
                 {
@@ -73,4 +71,11 @@ export function component_tiles(parent, view) {
 }
 
 
+
+async function img_to_count(parent, url, size) {
+    let img = await image_on_load_hidden(parent, url);
+    let y_count = Math.floor(img.height / size);
+    let x_count = Math.floor(img.width / size);
+    return { y_count, x_count };
+}
 
