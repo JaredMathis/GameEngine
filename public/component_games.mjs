@@ -14,6 +14,8 @@ import { copy } from "./copy.mjs";
 import { list_single } from "./list_single.mjs";
 import { range } from "./range.mjs";
 import { local_storage_entities_get } from "./local_storage_entities_get.mjs";
+import { game_objects_by_tag_get } from "./game_objects_by_tag_get.mjs";
+import { game_object_ancestors_get } from "./game_object_ancestors_get.mjs";
 
 export function component_games(parent, view) {
     component_new_open_local_storage(
@@ -98,47 +100,7 @@ function component_game_play(root) {
     }
 }
 
-function game_object_ancestors_get(game_objects, object) {
-    let result = [];
-    values_recursively_for_each(game_objects, (value, ancestors) => {
-        if (value === object) {
-            result.push(ancestors.slice());
-        }
-    });
-    return list_single(result);
-}
-
-function game_objects_by_tag_get(game_objects, tags_all, tag) {
-    let result = [];
-    values_recursively_for_each(game_objects, value => {
-        if (value.tags) {
-            let {tags} = value;
-            if (tags) {
-                let split = tags.split(',');
-                let final = list_single(split);
-                if (final === tag) {
-                    result.push(value);
-                }
-            }
-        }
-    });
-    return result;
-}
-
 function game_object_by_tag_get(game_objects, tags, tag) {
     return list_single(game_objects_by_tag_get(game_objects, tags, tag));
 }
 
-function values_recursively_for_each(object, for_each, ancestors) {
-    if (!ancestors) {
-        ancestors = [];
-    }
-    ancestors.push(object);
-    values_for_each(object, value => {
-        for_each(value, ancestors);
-        if (typeof value === typeof {}) {
-            values_recursively_for_each(value, for_each, ancestors)
-        }
-    })
-    ancestors.pop();
-}
