@@ -8,10 +8,11 @@ export function game_on_tile_choose(parent, view, stored) {
         { id: 'requirement', name: 'Requirement', type: 'string' },
         { id: 'action', name: 'Action', type: 'string' },
     ];
+    let title = 'On Tile Choose'
     component_button_view(
         parent,
         view,
-        'On Tile Choose',
+        title,
         function on_tile_choose(parent, view) {
             component_new_open_local_storage_property(
                 parent, view, game_prefix(), stored, 'on_tile_choose', field_infos, undefined, true
