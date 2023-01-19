@@ -15,12 +15,7 @@ export function component_new_open_generic(
     );
     let entities = entities_get();
     if (list_empty_not(entities)) {
-        component_button_view(
-            parent,
-            view,
-            'Open',
-            component_open_get(component_opened)
-        );
+        component_open_get(component_opened)(parent, view);
     }
 
     function component_opened(parent, view) {
