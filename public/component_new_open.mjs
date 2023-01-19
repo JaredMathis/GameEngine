@@ -35,7 +35,6 @@ export function component_new_open(
                 prefix, 
                 function component_opened(parent, view) {
                     button_back(parent, view);
-                    const selected_key = key_selected_get();
                     component_button_view(
                         parent,
                         view,
@@ -43,12 +42,12 @@ export function component_new_open(
                         component_edit_local_storage(
                             fields, 
                             prefix,
-                            selected_key)
+                            key_selected_get())
                     );
                     (component_on_open || noop)(
                         parent, 
                         view, 
-                        local_storage_object_get(prefix + selected_key));
+                        local_storage_object_get(prefix + key_selected_get()));
                 }));
     }
 }
