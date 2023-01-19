@@ -3,8 +3,8 @@ import { values_recursively_for_each } from "./values_recursively_for_each.mjs";
 
 export function game_objects_by_tag_get(game_objects, tags_all, tag) {
     let result = [];
-    values_recursively_for_each(game_objects, (value) => {
-        let tags_for_value = game_object_tags_get(value);
+    values_recursively_for_each(game_objects, (value, ancestors) => {
+        let tags_for_value = game_object_tags_get(value, ancestors);
         let final = list_single(tags_for_value);
         if (final === tag) {
             result.push(value);
@@ -12,7 +12,7 @@ export function game_objects_by_tag_get(game_objects, tags_all, tag) {
     }, undefined, value => value instanceof HTMLElement);
     return result;
 }
-function game_object_tags_get(value) {
+function game_object_tags_get(value, ancestors) {
     let tags_for_value = [];
     if (value.tags) {
         let { tags } = value;
