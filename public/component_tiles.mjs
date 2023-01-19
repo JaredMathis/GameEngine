@@ -29,8 +29,8 @@ export function component_tiles(parent, view) {
                 type: 'string',
             },
         ],
-        async (parent, view, stored) => {
-            let {size, url} = stored;
+        async (parent, view, root) => {
+            let {size, url} = root;
             let img = await image_on_load_hidden(parent, url);
             let tiles_y = Math.floor(img.height / size);
             let tiles_x = Math.floor(img.width / size);
@@ -63,7 +63,7 @@ export function component_tiles(parent, view) {
                         view_set_get(
                             view, 
                             component_edit_local_storage_property(
-                                img_fields, tiles_prefix(), stored, 'tiles', id, true)
+                                img_fields, tiles_prefix(), root, root, 'tiles', id, true)
                         )
                     )
                 }

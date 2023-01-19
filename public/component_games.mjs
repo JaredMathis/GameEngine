@@ -12,6 +12,14 @@ export function component_games(parent, view) {
         ],
         (parent, view, root) => {
             component_button_property_child(
+                parent, view, 'Maps', game_prefix(), root, root, 'maps', [
+                    { id: 'name', name: 'Name', type: 'string' },
+                    { id: 'tags', name: 'Tags', type: 'string' },
+                    { id: 'height', name: 'Height (Number of tiles vertically)', type: 'string' },
+                    { id: 'width', name: 'Width (Number of tiles vertically)', type: 'string' },
+                    { id: 'background', name: 'Background (tag of background tile)', type: 'string' },
+                ]);
+            component_button_property_child(
                 parent, view, 'On Tile Choose', game_prefix(), root, root, 'on_tile_choose', [
                     { id: 'name', name: 'Name', type: 'string' },
                     { id: 'requirement', name: 'Requirement', type: 'string' },
