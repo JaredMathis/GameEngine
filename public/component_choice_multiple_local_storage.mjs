@@ -4,7 +4,7 @@ import { element_select } from "./element_select.mjs";
 import { local_storage_set } from "./local_storage_set.mjs";
 import { view_set } from "./view_set.mjs";
 
-export function component_choice_multiple(
+export function component_choice_multiple_local_storage(
     parent, choices, local_storage_key, view, next_screen) {
     button_back(parent, view);
     let choose = element_select(parent, choices);
