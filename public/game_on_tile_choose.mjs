@@ -3,6 +3,9 @@ import { game_prefix } from "./game_prefix.mjs";
 import { component_edit_local_storage_property } from "./component_edit_local_storage_property.mjs";
 
 export function game_on_tile_choose(parent, view, stored) {
+
+
+    
     let field_infos = [
         { id: 'name', name: 'Name', type: 'string' },
         { id: 'requirement', name: 'Requirement', type: 'string' },
