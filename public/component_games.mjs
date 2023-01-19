@@ -59,9 +59,8 @@ function component_game_play(root) {
 
         let game = copy(root);
         
-        let tile_sets = local_storage_entities_get();
-
-        let tags = local_storage_entity_keys_get(tag_prefix());
+        let tile_sets = local_storage_entities_get(tiles_prefix());
+        let tags = local_storage_entities_get(tag_prefix());
 
         let game_objects = {tile_sets,game};
 
