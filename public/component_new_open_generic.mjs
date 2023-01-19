@@ -11,7 +11,7 @@ export function component_new_open_generic(
         parent,
         view,
         'New',
-        on_new
+        on_new()
     );
     let entities = entities_get();
     if (list_empty_not(entities)) {
