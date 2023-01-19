@@ -12,7 +12,9 @@ export function game_objects_by_tag_get(game_objects, tags_all, tag) {
                 result.push(value);
             }
         }
-    }, undefined, value => value instanceof HTMLElement);
+    }, 
+    undefined, 
+    value => value instanceof HTMLElement);
     return result;
 }
 

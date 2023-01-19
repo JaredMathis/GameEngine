@@ -7,6 +7,6 @@ export function game_object_ancestors_get(game_objects, object) {
         if (value === object) {
             result.push(ancestors.slice());
         }
-    });
+    }, undefined, value => value instanceof HTMLElement);
     return list_single(result);
 }
