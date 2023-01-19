@@ -40,7 +40,8 @@ export function component_game_play(root) {
                     tiles.push(tile);
                     element_on_click(ui, () => {
                         let requirement_met = false;
-                        values_for_each(game.on_tile_choose, on_tile_choose => {
+                        const on_tile_chooses = game.on_tile_choose;
+                        values_for_each(on_tile_chooses, on_tile_choose => {
                             let {requirement, action} = on_tile_choose;
                             let overlays = tile.overlays.map(o => game_object_by_tag_get(
                                 game_objects, tags, o));
