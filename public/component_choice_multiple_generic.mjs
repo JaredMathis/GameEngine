@@ -5,11 +5,11 @@ import { view_set } from "./view_set.mjs";
 
 export function component_choice_multiple_generic(parent, view, choices, on_choose, next_screen) {
     button_back(parent, view);
-    let choose = element_select(parent, choices);
+    let select = element_select(parent, choices);
     element_button_standard(parent, 'Choose', () => {
         on_choose();
         view_set(view, next_screen);
     });
-    choose.focus();
-    return choose;
+    select.focus();
+    return select;
 }
