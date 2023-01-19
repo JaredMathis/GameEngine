@@ -13,6 +13,8 @@ export function component_new_open(
     
     let entities_get = () => local_storage_entities_get(prefix);
     let on_new = () => component_edit_local_storage(fields, prefix);
+
+    
     button_back(parent, view);
     component_button_view(
         parent,
