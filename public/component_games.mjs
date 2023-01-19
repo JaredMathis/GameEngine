@@ -49,6 +49,6 @@ export function component_games(parent, view) {
 function component_game_play(root) {
     return function (parent, view) {
         button_back(parent, view);
-        console.log('root');
+        console.log({root});
     }
 }
