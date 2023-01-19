@@ -1,6 +1,7 @@
 import { component_new_open_local_storage } from "./component_new_open_local_storage.mjs";
 import { game_prefix } from "./game_prefix.mjs";
 import { component_button_property_child } from "./component_button_property_child.mjs";
+import { component_button_view } from "./component_button_view.mjs";
 
 export function component_games(parent, view) {
     component_new_open_local_storage(
@@ -9,8 +10,10 @@ export function component_games(parent, view) {
         game_prefix(), 
         [
             { id: 'name', name: 'Name of Game', type: 'string', },
+            { id: 'map_default', name: 'Default map tag', type: 'string', },
         ],
         (parent, view, root) => {
+            component_button_view(parent, view, 'Play!', component_game_play(root));
             component_button_property_child(
                 parent, view, 'Maps', game_prefix(), root, root, 'maps', [
                     { id: 'name', name: 'Name', type: 'string' },
@@ -42,4 +45,8 @@ export function component_games(parent, view) {
         );
 }
 
-
+function component_game_play(root) {
+    return function (parent, view) {
+        console.log('root');
+    }
+}
