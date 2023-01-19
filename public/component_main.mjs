@@ -10,7 +10,7 @@ export function component_main(parent, view) {
     component_button_view(
         parent, view, 'Tags', component_tags);
     component_button_view(
-        parent, view, 'Game', component_game);
+        parent, view, 'Games', component_game);
     component_button_view(
         parent, view, 'Settings', component_settings);
 }
