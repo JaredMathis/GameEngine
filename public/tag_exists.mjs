@@ -17,7 +17,7 @@ export function tag_exists(
         not,
     ];
 
-    let expression = tag;
+    let expression = ` ${tag} `;
 
     let matches = tags_all.filter(t => t.name === tag);
     if (matches.length > 1) {
