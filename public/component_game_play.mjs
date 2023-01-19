@@ -42,7 +42,7 @@ export function component_game_play(root) {
                     tiles.push(tile);
                     element_on_click(ui, () => {
                         values_for_each(game.on_tile_choose, on_tile_choose => {
-                            let requirement_tag = on_tile_choose.requirement;
+                            let {requirement, action} = on_tile_choose;
                             let overlays = tile.overlays.map(o => game_object_by_tag_get(
                                 game_objects, tags, o));
                             let overlay_tags = overlays.map(o => 
@@ -50,7 +50,10 @@ export function component_game_play(root) {
                                     o, game_object_ancestors_get(game_objects, o)
                                 )
                             );
-                            console.log({overlay_tags});
+                            let action_parts = action.split(' ');
+                            if (action_parts[0] === 'overlay') {
+                                console.log({overlay_tags});
+                            }
                         });
                     });
                     for (let o of tile.overlays) {
