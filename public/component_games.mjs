@@ -83,7 +83,7 @@ function component_game_play(root) {
             for (let y in range(map.height)) {
                 let tile_row = element_div(parent);
                 for (let x in range(map.width)) {
-                    let tile = element(parent, 'span');
+                    let tile = element(tile_row, 'span');
                     img_from_tile_set(
                         tile, background_tile_set, background_x, background_y);
                 }
