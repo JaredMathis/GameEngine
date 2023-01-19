@@ -48,7 +48,10 @@ export function tag_exists(
     }
 
     values_for_each(blob, (value, key) => {
-        expression = expression.replaceAll(key, value)
+        let before = expression;
+        expression = expression.replaceAll(key, value);
+        let after = expression;
+        
     })
 
     return eval(expression);
