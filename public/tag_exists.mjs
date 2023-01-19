@@ -1,5 +1,6 @@
 import { game_object_tags_get } from "./game_object_tags_get.mjs";
 import { list_single } from "./list_single.mjs";
+import { values_for_each } from "./values_for_each.mjs";
 
 export function tag_exists(tags_all, ancestors, game_object, tag) {
     let parenthesis_left = '(';
@@ -46,12 +47,11 @@ export function tag_exists(tags_all, ancestors, game_object, tag) {
         blob[n] = true;
     }
 
-    
+    values_for_each(blob, (value, key) => {
+        expression = expression.replaceAll(key, value)
+    })
 
-    if (tags_for_value.length) {
-        if (tags_for_value.includes(tag)) {
-            return true;
-        }
-    }
-    return false;
+    console.log({blob, expression, tag, game_object})
+
+    return eval(expression);
 }
