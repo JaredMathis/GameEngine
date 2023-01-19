@@ -7,6 +7,8 @@ import { field_values_get } from "./field_values_get.mjs";
 
 export function component_edit(fields, initial_values_get, on_save, disable_name) {
     return function (parent, view) {
+        button_back(parent, view);
+        
         let initial_values = initial_values_get();
         
         let field_controls = {};
@@ -37,7 +39,6 @@ export function component_edit(fields, initial_values_get, on_save, disable_name
                 on_save(field_values);
                 view.pop();
             });
-        button_back(parent, view);
     }
 }
 
