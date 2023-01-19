@@ -5,8 +5,7 @@ import { local_storage_set } from "./local_storage_set.mjs";
 
 export function component_open_local_storage(prefix, component_on_open) {
     return function (parent, view) {
-        let choices = local_storage_entities_get(prefix)
-            .map(k => k.substring(prefix.length));
+        let choices = entities_get();
 
         let select = component_choice_multiple_generic(
             parent, view, choices, on_choose, component_on_open);
@@ -16,6 +15,11 @@ export function component_open_local_storage(prefix, component_on_open) {
                 local_storage_key_selected_get(prefix), 
                 current => select.value);
         }
+    }
+
+    function entities_get() {
+        return local_storage_entities_get(prefix)
+            .map(k => k.substring(prefix.length));
     }
 }
 
