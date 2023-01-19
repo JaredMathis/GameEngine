@@ -6,11 +6,13 @@ export function tag_exists(tags_all, ancestors, game_object, tag) {
     let parenthesis_right = ')';
     let and = '&&';
     let or = '||';
+    let not = '!';
     let tokens_key = [
         parenthesis_left, 
         parenthesis_right,
         and, 
         or,
+        not,
     ];
 
     let expression = tag;
@@ -28,6 +30,8 @@ export function tag_exists(tags_all, ancestors, game_object, tag) {
         .replaceAll(` and `, ` ${and} `) 
     expression = expression
         .replaceAll(` or `, ` ${or} `)
+    expression = expression
+        .replaceAll(` not `, ` ${not} `)
     
     let tokens = expression.split(' ');
     let names = tokens.filter(t => !tokens_key.includes(t));
@@ -41,6 +45,9 @@ export function tag_exists(tags_all, ancestors, game_object, tag) {
     for (let n of tags_for_value) {
         blob[n] = true;
     }
+
+    
+
     if (tags_for_value.length) {
         if (tags_for_value.includes(tag)) {
             return true;
