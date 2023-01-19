@@ -21,29 +21,18 @@ export function component_new_open_local_storage(
         prefix,
         key_selected_get());
     let entity_get = () => local_storage_object_get(prefix + key_selected_get())
-    let component_open_get = () => component_open_local_storage(
+    let component_open_get = (component_opened) => component_open_local_storage(
         prefix, 
         component_opened,
     );
 
-    component_new_open_generic(parent, view, on_new, entities_get, component_open_get);
-
-    function component_opened(parent, view) {
-        component_button_view(
-            parent,
-            view,
-            'Edit',
-            component_edit_get()
-        );
-        (component_on_open || noop)(
-            parent, 
-            view, 
-            entity_get());
-        button_back(parent, view);
-    }
+    component_new_open_generic(
+        parent, view, component_on_open, on_new, entities_get, component_open_get, component_edit_get, entity_get);
 }
 
-function component_new_open_generic(parent, view, on_new, entities_get, component_open_get) {
+function component_new_open_generic(
+    parent, view, component_on_open, on_new, entities_get, component_open_get, component_edit_get, entity_get) {
+
     button_back(parent, view);
     component_button_view(
         parent,
@@ -57,8 +46,22 @@ function component_new_open_generic(parent, view, on_new, entities_get, componen
             parent,
             view,
             'Open',
-            component_open_get()
+            component_open_get(component_opened)
         );
+    }
+    
+    function component_opened(parent, view) {
+        button_back(parent, view);
+        component_button_view(
+            parent,
+            view,
+            'Edit',
+            component_edit_get()
+        );
+        (component_on_open || noop)(
+            parent, 
+            view, 
+            entity_get());
     }
 }
 
