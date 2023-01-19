@@ -14,6 +14,7 @@ export function component_game(parent, view) {
         (parent, view, stored) => {
             let field_infos = [
                 { id:'name', name: 'Name', type: 'string' },
+                { id:'requirement', name: 'Requirement', type: 'string' },
             ]
             component_button_view(
                 parent, 
