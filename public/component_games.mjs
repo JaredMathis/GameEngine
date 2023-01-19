@@ -27,6 +27,7 @@ export function component_games(parent, view) {
             component_button_property_child(
                 parent, view, 'On Tile Choose', game_prefix(), root, root, 'on_tile_choose', [
                     { id: 'name', name: 'Name', type: 'string' },
+                    { id: 'priority', name: 'Priority (order actions are ran)', type: 'string' },
                     { id: 'requirement', name: 'Requirement', type: 'string' },
                     { id: 'action', name: 'Action', type: 'string' },
                 ]);
