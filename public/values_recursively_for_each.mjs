@@ -9,9 +9,9 @@ export function values_recursively_for_each(object, for_each, ancestors, except)
     if (!ancestors) {
         ancestors = [];
     }
+    for_each(object, ancestors);
     ancestors.push(object);
     values_for_each(object, value => {
-        for_each(value, ancestors);
         if (typeof value === typeof {}) {
             values_recursively_for_each(
                 value, for_each, ancestors, except);
