@@ -2,6 +2,8 @@ import { game_object_tags_get } from "./game_object_tags_get.mjs";
 import { list_single } from "./list_single.mjs";
 
 export function tag_exists(tags_all, ancestors, game_object, tag) {
+    let parenthesis_left = '(';
+    let parenthesis_right = ')';
 
     let expression = tag;
 
@@ -11,13 +13,16 @@ export function tag_exists(tags_all, ancestors, game_object, tag) {
     }
     if (matches.length === 1) {
         expression = expression
-            .replaceAll(tag, `( ${matches[0].definition} )`)
+            .replaceAll(tag, `${parenthesis_left} ${matches[0].definition} ${parenthesis_right}`)
     }
 
     expression = expression
         .replaceAll(` and `, ` && `) 
     expression = expression
         .replaceAll(` or `, ` || `)
+    
+    let tokens = expression.split(' ');
+    let tokens_key = ['']
 
     let tags_for_value = game_object_tags_get(
         game_object, ancestors);
