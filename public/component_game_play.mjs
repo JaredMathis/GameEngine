@@ -63,6 +63,11 @@ export function component_game_play(root) {
                                     })
                                 }
                             }
+                            console.log('Requirement met', {
+                                o, 
+                                requirement,
+                                name:on_tile_choose.name
+                            })
                             let action_parts = action.split(' ');
                             if (action_parts[0] === 'overlay') {
                                 let overlay_tag_get = action_parts[1];
