@@ -4,7 +4,7 @@ import { noop } from "./noop.mjs";
 import { list_empty_not } from "./list_empty_not.mjs";
 
 export function component_new_open_generic(
-    parent, view, component_on_open, on_new, entities_get, component_open_get, component_edit_get, entity_get, edit_immediately) {
+    parent, view, component_on_open, on_new, entities_get, component_open_get, component_edit_get, entity_get) {
 
     button_back(parent, view);
     component_button_view(
