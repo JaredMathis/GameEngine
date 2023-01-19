@@ -102,9 +102,12 @@ function range(limit) {
 }
 
 function game_objects_by_tag_get(game_objects, tag) {
-    values_recursively_get(game_objects, value => {
+    values_recursively_for_each(game_objects, value => {
         if (value.tags) {
-            
+            let {tags} = value;
+            if (tags) {
+                tag
+            }
         }
     });
 }
@@ -118,7 +121,7 @@ function list_single(list) {
     return list[0];
 }
 
-function values_recursively_get(object, for_each, ancestors) {
+function values_recursively_for_each(object, for_each, ancestors) {
     if (!ancestors) {
         ancestors = [];
     }
@@ -126,7 +129,7 @@ function values_recursively_get(object, for_each, ancestors) {
         for_each(value, ancestors);
         if (typeof value === typeof {}) {
             ancestors.push(value);
-            values_recursively_get(value, for_each, ancestors)
+            values_recursively_for_each(value, for_each, ancestors)
             ancestors.pop();
         }
     })
