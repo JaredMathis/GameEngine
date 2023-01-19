@@ -16,8 +16,6 @@ export function game_on_tile_choose(parent, view, stored) {
         parent,
         view,
         'On Tile Choose',
-        // component_edit_local_storage_property(
-        //     field_infos, game_prefix(), stored, 'on_tile_choose', '1')
         function on_tile_choose(parent, view) {
             component_new_open_local_storage_property(
                 parent, view, game_prefix(), stored, 'on_tile_choose', field_infos, noop
