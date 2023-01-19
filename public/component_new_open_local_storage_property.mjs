@@ -14,12 +14,12 @@ export function component_new_open_local_storage_property(
     };
     let component_edit_get = (entity) => component_edit_local_storage_property(
         fields, prefix, stored, property_name, property_get(entity, 'name'), true);
-    let entity;
-    let entity_get = () => entity
+    let entity_name;
+    let entity_get = () => entities_get()[entity_name]
     let component_open_get = (component_opened) => { 
         return component_open_generic(
             entities_get, 
-            value => entity = value,
+            value => entity_name = value,
             component_opened);
         };
 
