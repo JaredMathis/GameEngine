@@ -11,6 +11,7 @@ import { assert } from "./assert.mjs";
 import { tag_prefix } from "./tag_prefix.mjs";
 import { list_last } from "./list_last.mjs";
 import { img_from_tile_set } from "./img_from_tile_set.mjs";
+import { element_div } from "./element_div.mjs";
 
 export function component_games(parent, view) {
     component_new_open_local_storage(
@@ -80,9 +81,10 @@ function component_game_play(root) {
             let [background_y, background_x] = background.name.split('_');
 
             for (let y in range(map.height)) {
+                let tile_row = element_div(parent);
                 for (let x in range(map.width)) {
                     img_from_tile_set(
-                        parent, background_tile_set, background_x, background_y);
+                        tile_row, background_tile_set, background_x, background_y);
                 }
             }
         });
