@@ -68,9 +68,10 @@ function component_game_play(root) {
 
         let map_default_tag = game.map_default;
         let map_default = game_object_by_tag_get(game_objects, tags, map_default_tag)
-        console.log({map_default});
+        // console.log({map_default});
 
         values_for_each(game.maps, map => {
+            console.log({map})
             let tiles = [];
             for (let y in range(map.height)) {
                 for (let x in range(map.width)) {
