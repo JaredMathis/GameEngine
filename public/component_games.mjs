@@ -3,7 +3,6 @@ import { game_prefix } from "./game_prefix.mjs";
 import { component_button_property_child } from "./component_button_property_child.mjs";
 import { component_button_view } from "./component_button_view.mjs";
 import { button_back } from "./button_back.mjs";
-import { img_to_count } from "./img_to_count.mjs";
 import { local_storage_entity_keys_get } from "./local_storage_entity_keys_get.mjs";
 import { values_for_each } from "./values_for_each.mjs";
 import { tiles_prefix } from "./tiles_prefix.mjs";
