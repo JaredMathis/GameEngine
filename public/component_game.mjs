@@ -1,7 +1,6 @@
 import { component_new_open } from "./component_new_open.mjs";
-import { component_button_view } from "./component_button_view.mjs";
 import { game_prefix } from "./game_prefix.mjs";
-import { component_edit_local_storage_property } from "./component_edit_local_storage_property.mjs";
+import { game_on_tile_choose } from "./game_on_tile_choose.mjs";
 
 export function component_game(parent, view) {
     component_new_open(
@@ -12,17 +11,9 @@ export function component_game(parent, view) {
             { id: 'name', name: 'Name of Game', type: 'string', },
         ],
         (parent, view, stored) => {
-            let field_infos = [
-                { id:'name', name: 'Name', type: 'string' },
-                { id:'requirement', name: 'Requirement', type: 'string' },
-            ]
-            component_button_view(
-                parent, 
-                view, 
-                'On Tile Choose', 
-                component_edit_local_storage_property(
-                    field_infos, game_prefix(), stored, 'on_tile_choose', '1'))
+            game_on_tile_choose(parent, view, stored);
         }
         );
 }
+
 
