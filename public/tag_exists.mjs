@@ -35,7 +35,6 @@ export function tag_exists(
                 expression = expression
                     .replaceAll(key, `${parenthesis_left} ${m.definition} ${parenthesis_right}`)
                 changed = true;
-                console.log({m})
             }
         })
         if (!changed) {
