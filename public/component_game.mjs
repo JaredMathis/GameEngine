@@ -21,9 +21,9 @@ export function component_game(parent, view) {
                 parent, view, 'Players', game_prefix(), stored, 'players', [
                     { id: 'name', name: 'Name', type: 'string' },
                     { id: 'tags', name: 'Tags', type: 'string' },
-                ], function (parent, view, entity){
-                    console.log({a:arguments})
-                    debugger;
+                ], 
+                (parent, view, stored) => {
+                    
                 });
         }
         );
