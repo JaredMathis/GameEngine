@@ -12,6 +12,7 @@ import { tag_prefix } from "./tag_prefix.mjs";
 import { list_last } from "./list_last.mjs";
 import { img_from_tile_set } from "./img_from_tile_set.mjs";
 import { element_div } from "./element_div.mjs";
+import { element } from "./element.mjs";
 
 export function component_games(parent, view) {
     component_new_open_local_storage(
