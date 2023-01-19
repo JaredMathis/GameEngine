@@ -11,6 +11,9 @@ export function game_on_tile_choose(parent, view, stored) {
     let title = 'On Tile Choose';
     let property_name = 'on_tile_choose';
     let prefix = game_prefix();
+    component_button_property_child(parent, view, title, prefix, stored, property_name, field_infos);
+}
+function component_button_property_child(parent, view, title, prefix, stored, property_name, field_infos) {
     component_button_view(
         parent,
         view,
@@ -18,7 +21,8 @@ export function game_on_tile_choose(parent, view, stored) {
         function on_tile_choose(parent, view) {
             component_new_open_local_storage_property(
                 parent, view, prefix, stored, property_name, field_infos, undefined, true
-            )
+            );
         }
-        );
+    );
 }
+
