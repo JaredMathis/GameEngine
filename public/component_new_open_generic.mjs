@@ -25,6 +25,7 @@ export function component_new_open_generic(
 
     function component_opened(parent, view) {
         button_back(parent, view);
+        let entity = entity_get();
         component_button_view(
             parent,
             view,
@@ -34,6 +35,6 @@ export function component_new_open_generic(
         (component_on_open || noop)(
             parent,
             view,
-            entity_get());
+            entity);
     }
 }
