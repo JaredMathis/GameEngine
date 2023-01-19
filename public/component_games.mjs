@@ -57,14 +57,9 @@ function component_game_play(root) {
 
         let game = copy(root);
         
-        for (let key of local_storage_entities_get(tiles_prefix())) {
-            let tile_set = local_storage_object_get(key);
-            let {url, size, tiles} = tile_set;
-            values_for_each(tiles, (tile, key) => {
+        let tile_keys = local_storage_entities_get(tiles_prefix());
+        let tile_sets = tile_keys.map(key => local_storage_object_get(key));
 
-            });
-        }
-        
         values_for_each(game.maps, map => {
             let tiles = [];
             for (let y in range(map.height)) {
