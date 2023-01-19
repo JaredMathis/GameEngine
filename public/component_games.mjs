@@ -77,10 +77,12 @@ function component_game_play(root) {
                 game_objects, tags, map_background_tag);
             let background_ancestors = game_object_ancestors_get(game_objects, background);
             let background_tile_set = background_ancestors[background_ancestors.length - 2];
+            let [background_y, background_x] = background.name.split('_');
 
             for (let y in range(map.height)) {
                 for (let x in range(map.width)) {
-                    img_from_tile_set(parent, background_tile_set, x, y);
+                    img_from_tile_set(
+                        parent, background_tile_set, background_x, background_y);
                 }
             }
         });
