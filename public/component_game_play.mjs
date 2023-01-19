@@ -2,7 +2,6 @@ import { button_back } from "./button_back.mjs";
 import { values_for_each } from "./values_for_each.mjs";
 import { tiles_prefix } from "./tiles_prefix.mjs";
 import { tag_prefix } from "./tag_prefix.mjs";
-import { img_from_tile_set } from "./img_from_tile_set.mjs";
 import { element_div } from "./element_div.mjs";
 import { element } from "./element.mjs";
 import { element_on_click } from "./element_on_click.mjs";
@@ -12,6 +11,7 @@ import { local_storage_entities_get } from "./local_storage_entities_get.mjs";
 import { game_object_ancestors_get } from "./game_object_ancestors_get.mjs";
 import { game_object_by_tag_get } from "./game_object_by_tag_get.mjs";
 import { game_object_tags_get } from "./game_object_tags_get.mjs";
+import { img_from_tag } from "./img_from_tag";
 
 export function component_game_play(root) {
     return function (parent, view) {
@@ -67,15 +67,5 @@ export function component_game_play(root) {
             map.tiles = tiles;
         });
     };
-}
-function img_from_tag(parent, game_objects, tags, tile_tag) {
-    let background = game_object_by_tag_get(
-        game_objects, tags, tile_tag);
-    let background_ancestors = game_object_ancestors_get(
-        game_objects, background);
-    let background_tile_set = background_ancestors[background_ancestors.length - 2];
-    let [background_y, background_x] = background.name.split('_');
-    img_from_tile_set(
-        parent, background_tile_set, background_x, background_y);
 }
 
