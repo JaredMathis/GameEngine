@@ -10,20 +10,25 @@ export function component_games(parent, view) {
         [
             { id: 'name', name: 'Name of Game', type: 'string', },
         ],
-        (parent, view, stored) => {
+        (parent, view, root) => {
             component_button_property_child(
-                parent, view, 'On Tile Choose', game_prefix(), stored, 'on_tile_choose', [
+                parent, view, 'On Tile Choose', game_prefix(), root, root, 'on_tile_choose', [
                     { id: 'name', name: 'Name', type: 'string' },
                     { id: 'requirement', name: 'Requirement', type: 'string' },
                     { id: 'action', name: 'Action', type: 'string' },
                 ]);
             component_button_property_child(
-                parent, view, 'Players', game_prefix(), stored, 'players', [
+                parent, view, 'Players', game_prefix(), root, root, 'players', [
                     { id: 'name', name: 'Name', type: 'string' },
                     { id: 'tags', name: 'Tags', type: 'string' },
                 ], 
-                (parent, view, stored) => {
-                    
+                (parent, view, entity) => {
+                    component_button_property_child(
+                        parent, view, 'Children', game_prefix(), root, entity, 'children', [
+                            { id: 'name', name: 'Name', type: 'string' },
+                            { id: 'tags', name: 'Tags', type: 'string' },
+                            { id: 'value', name: 'Value', type: 'string' },
+                        ], undefined);
                 });
         }
         );
