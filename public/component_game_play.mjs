@@ -24,8 +24,6 @@ export function component_game_play(root) {
         
         game_turn_next(game);
 
-        console.log({ game_objects, tags });
-
         let map_default_tag = game.map_default;
         let map_default = game_object_by_tag_get(game_objects, tags, map_default_tag);
 
@@ -46,7 +44,6 @@ export function component_game_play(root) {
                             let {requirement, action} = on_tile_choose;
                             let overlays = tile.overlays.map(o => game_object_by_tag_get(
                                 game_objects, tags, o));
-                            console.log({overlays, tile})
                             for (let o of overlays) {
                                 if (!tag_exists(
                                     tags, game_object_ancestors_get(game_objects, o), o, requirement)) {
