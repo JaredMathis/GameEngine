@@ -4,11 +4,12 @@ import { component_button_property_child } from "./component_button_property_chi
 import { component_button_view } from "./component_button_view.mjs";
 import { button_back } from "./button_back.mjs";
 import { img_to_count } from "./img_to_count.mjs";
-import { local_storage_entities_get } from "./local_storage_entities_get.mjs";
+import { local_storage_entity_keys_get } from "./local_storage_entity_keys_get.mjs";
 import { values_for_each } from "./values_for_each.mjs";
 import { tiles_prefix } from "./tiles_prefix.mjs";
 import { local_storage_object_get } from "./local_storage_object_get.mjs";
 import { assert } from "./assert.mjs";
+import { tag_prefix } from "./tag_prefix.mjs";
 
 export function component_games(parent, view) {
     component_new_open_local_storage(
@@ -58,8 +59,9 @@ function component_game_play(root) {
 
         let game = copy(root);
         
-        let tile_keys = local_storage_entities_get(tiles_prefix());
-        let tile_sets = tile_keys.map(key => local_storage_object_get(key));
+        let tile_sets = newFunction();
+
+        let tags = local_storage_entity_keys_get(tag_prefix());
 
         let game_objects = {tile_sets,game};
 
@@ -84,10 +86,13 @@ function component_game_play(root) {
             }
             map.tiles = tiles;
         });
-
-
-
     }
+}
+
+function newFunction() {
+    let tile_keys = local_storage_entity_keys_get(tiles_prefix());
+    let tile_sets = tile_keys.map(key => local_storage_object_get(key));
+    return tile_sets;
 }
 
 function copy(object) {
@@ -109,7 +114,7 @@ function game_objects_by_tag_get(game_objects, tag) {
             let {tags} = value;
             if (tags) {
                 let split = tags.split(',');
-                console.log({value, split});
+                console.log(split);
             }
         }
     });
