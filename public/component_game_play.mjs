@@ -47,7 +47,7 @@ export function component_game_play(root) {
                             let {requirement, action} = on_tile_choose;
                             let overlays = tile.overlays.map(o => game_object_by_tag_get(
                                 game_objects, tags, o));
-                            
+                            console.log({overlays})
                             for (let o of overlays) {
                                 if (!tag_exists(
                                     tags, game_object_ancestors_get(game_objects, o), o, requirement)) {
@@ -74,7 +74,7 @@ export function component_game_play(root) {
 
                                 img_from_tag(ui, game_objects, tags, value);
 
-                                // tile.overlays.push(overlay_tag);
+                                tile.overlays.push(overlay_tag_get);
                             }
                         });
                     });

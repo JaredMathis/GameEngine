@@ -19,6 +19,8 @@ export function tag_exists(
 
     let expression = ` ${tag} `;
 
+    let versions = [expression];
+
     let changed = true; 
     for (let i of range(100)) {
         changed = false;
@@ -29,14 +31,17 @@ export function tag_exists(
                 throw new Error('Multiple tags matched ' + key);
             }
             if (matches.length === 1) {
+                const m = matches[0];
                 expression = expression
-                    .replaceAll(tag, `${parenthesis_left} ${matches[0].definition} ${parenthesis_right}`)
+                    .replaceAll(key, `${parenthesis_left} ${m.definition} ${parenthesis_right}`)
                 changed = true;
+                console.log({m})
             }
         })
         if (!changed) {
             break;
         }
+        versions.push(expression);
     }
 
     expression = expression
@@ -57,6 +62,8 @@ export function tag_exists(
     values_for_each(blob, (value, key) => {
         expression = expression.replaceAll(key, value);
     })
+
+    console.log({versions, expression})
 
     return eval(expression);
 }
