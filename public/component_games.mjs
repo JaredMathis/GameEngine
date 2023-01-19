@@ -69,6 +69,9 @@ function component_game_play(root) {
                     tiles.push({
                         x,
                         y,
+                        overlays: [
+                            
+                        ]
                     });
                 }
             }
