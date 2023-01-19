@@ -10,6 +10,7 @@ import { local_storage_object_get } from "./local_storage_object_get.mjs";
 import { assert } from "./assert.mjs";
 import { tag_prefix } from "./tag_prefix.mjs";
 import { list_last } from "./list_last.mjs";
+import { img_from_tile_set } from "./img_from_tile_set.mjs";
 
 export function component_games(parent, view) {
     component_new_open_local_storage(
@@ -76,20 +77,12 @@ function component_game_play(root) {
                 game_objects, tags, map_background_tag);
             let background_ancestors = game_object_ancestors_get(game_objects, background);
             let background_tile_set = background_ancestors[background_ancestors.length - 2];
-            
-            let tiles = [];
+
             for (let y in range(map.height)) {
                 for (let x in range(map.width)) {
-                    tiles.push({
-                        x,
-                        y,
-                        overlays: [
-                            
-                        ]
-                    });
+                    img_from_tile_set(parent, background_tile_set, x, y);
                 }
             }
-            map.tiles = tiles;
         });
     }
 }
