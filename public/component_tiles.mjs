@@ -2,7 +2,7 @@ import { component_edit_local_storage_property } from "./component_edit_local_st
 import { component_new_open_local_storage } from "./component_new_open_local_storage.mjs";
 import { element_img } from "./element_img.mjs";
 import { element_on_click } from "./element_on_click.mjs";
-import { image_on_load_hidden } from "./image_on_load_hidden.mjs";
+import { img_to_count } from "./img_to_count.mjs";
 import { range } from "./range.mjs";
 import { tiles_prefix } from "./tiles_prefix.mjs";
 import { view_set_get } from "./view_set_get.mjs";
@@ -72,10 +72,4 @@ export function component_tiles(parent, view) {
 
 
 
-async function img_to_count(parent, url, size) {
-    let img = await image_on_load_hidden(parent, url);
-    let y_count = Math.floor(img.height / size);
-    let x_count = Math.floor(img.width / size);
-    return { y_count, x_count };
-}
 
