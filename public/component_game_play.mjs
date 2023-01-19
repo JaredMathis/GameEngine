@@ -11,7 +11,7 @@ import { local_storage_entities_get } from "./local_storage_entities_get.mjs";
 import { game_object_ancestors_get } from "./game_object_ancestors_get.mjs";
 import { game_object_by_tag_get } from "./game_object_by_tag_get.mjs";
 import { game_object_tags_get } from "./game_object_tags_get.mjs";
-import { img_from_tag } from "./img_from_tag";
+import { img_from_tag } from "./img_from_tag.mjs";
 
 export function component_game_play(root) {
     return function (parent, view) {
