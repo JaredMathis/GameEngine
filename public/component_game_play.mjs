@@ -74,7 +74,7 @@ export function component_game_play(root) {
 
                                 img_from_tag(ui, game_objects, tags, value);
 
-                                tile.overlays.push(overlay_tag_get);
+                                tile.overlays.push(value);
                             }
                         });
                     });
