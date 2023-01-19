@@ -6,6 +6,12 @@ export function tag_exists(tags_all, ancestors, game_object, tag) {
     let parenthesis_right = ')';
     let and = '&&';
     let or = '||';
+    let tokens_key = [
+        parenthesis_left, 
+        parenthesis_right,
+        and, 
+        or,
+    ];
 
     let expression = tag;
 
@@ -24,7 +30,6 @@ export function tag_exists(tags_all, ancestors, game_object, tag) {
         .replaceAll(` or `, ` ${or} `)
     
     let tokens = expression.split(' ');
-    let tokens_key = ['']
 
     let tags_for_value = game_object_tags_get(
         game_object, ancestors);
