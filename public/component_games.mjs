@@ -9,11 +9,11 @@ import { tiles_prefix } from "./tiles_prefix.mjs";
 import { local_storage_object_get } from "./local_storage_object_get.mjs";
 import { assert } from "./assert.mjs";
 import { tag_prefix } from "./tag_prefix.mjs";
-import { list_last } from "./list_last.mjs";
 import { img_from_tile_set } from "./img_from_tile_set.mjs";
 import { element_div } from "./element_div.mjs";
 import { element } from "./element.mjs";
 import { element_on_click } from "./element_on_click.mjs";
+import { copy } from "./copy.mjs";
 
 export function component_games(parent, view) {
     component_new_open_local_storage(
@@ -102,10 +102,6 @@ function local_storage_entities_get(prefix) {
     let tile_keys = local_storage_entity_keys_get(prefix);
     let tile_sets = tile_keys.map(key => local_storage_object_get(key));
     return tile_sets;
-}
-
-function copy(object) {
-    return JSON.parse(JSON.stringify(object));
 }
 
 function range(limit) {
