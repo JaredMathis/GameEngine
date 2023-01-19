@@ -2,7 +2,7 @@ import { component_new_open_local_storage } from "./component_new_open_local_sto
 import { game_prefix } from "./game_prefix.mjs";
 import { component_button_property_child } from "./component_button_property_child.mjs";
 
-export function component_game(parent, view) {
+export function component_games(parent, view) {
     component_new_open_local_storage(
         parent, 
         view, 
