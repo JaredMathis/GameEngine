@@ -74,10 +74,11 @@ export function component_game_play(root) {
 
                                 tile.overlays.push(value);
                             }
-
                             requirement_met = true;
                         });
-                        game_turn_next(game);
+                        if (requirement_met) {
+                            game_turn_next(game);
+                        }
                     });
                     for (let o of tile.overlays) {
                         img_from_tag(ui, game_objects, tags, o);
