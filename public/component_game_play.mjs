@@ -29,25 +29,33 @@ export function component_game_play(root) {
         let map_default = game_object_by_tag_get(game_objects, tags, map_default_tag);
         // console.log({map_default});
         values_for_each(game.maps, map => {
-            let map_background_tag = map.background;
-            let background = game_object_by_tag_get(
-                game_objects, tags, map_background_tag);
-            let background_ancestors = game_object_ancestors_get(
-                game_objects, background);
-            let background_tile_set = background_ancestors[background_ancestors.length - 2];
-            let [background_y, background_x] = background.name.split('_');
+
+            let tiles = [];
 
             for (let y in range(map.height)) {
                 let tile_row = element_div(parent);
                 for (let x in range(map.width)) {
-                    let tile = element(tile_row, 'span');
-                    element_on_click(tile, () => {
-                        // values_for_each(game.on_tile_choose,
+                    let ui = element(tile_row, 'span');
+                    tiles.push({x,y,ui});
+                    element_on_click(ui, () => {
+                        values_for_each(game.on_tile_choose, on_tile_choose => {
+                            let requirement_tag = on_tile_choose.requirement;
+
+                        });
                     });
+                    let map_background_tag = map.background;
+                    let background = game_object_by_tag_get(
+                        game_objects, tags, map_background_tag);
+                    let background_ancestors = game_object_ancestors_get(
+                        game_objects, background);
+                    let background_tile_set = background_ancestors[background_ancestors.length - 2];
+                    let [background_y, background_x] = background.name.split('_');
                     img_from_tile_set(
-                        tile, background_tile_set, background_x, background_y);
+                        ui, background_tile_set, background_x, background_y);
                 }
             }
+
+            map.tiles = tiles;
         });
     };
 }
