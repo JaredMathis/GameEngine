@@ -14,6 +14,11 @@ export function tag_exists(tags_all, ancestors, game_object, tag) {
             .replaceAll(tag, `( ${matches[0].definition} )`)
     }
 
+    expression = expression
+        .replaceAll(` and `, ` && `) 
+    expression = expression
+        .replaceAll(` or `, ` || `)
+
     let tags_for_value = game_object_tags_get(
         game_object, ancestors);
     if (tags_for_value.length) {
