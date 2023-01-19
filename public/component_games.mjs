@@ -3,10 +3,8 @@ import { game_prefix } from "./game_prefix.mjs";
 import { component_button_property_child } from "./component_button_property_child.mjs";
 import { component_button_view } from "./component_button_view.mjs";
 import { button_back } from "./button_back.mjs";
-import { local_storage_entity_keys_get } from "./local_storage_entity_keys_get.mjs";
 import { values_for_each } from "./values_for_each.mjs";
 import { tiles_prefix } from "./tiles_prefix.mjs";
-import { local_storage_object_get } from "./local_storage_object_get.mjs";
 import { tag_prefix } from "./tag_prefix.mjs";
 import { img_from_tile_set } from "./img_from_tile_set.mjs";
 import { element_div } from "./element_div.mjs";
@@ -15,6 +13,7 @@ import { element_on_click } from "./element_on_click.mjs";
 import { copy } from "./copy.mjs";
 import { list_single } from "./list_single.mjs";
 import { range } from "./range.mjs";
+import { local_storage_entities_get } from "./local_storage_entities_get.mjs";
 
 export function component_games(parent, view) {
     component_new_open_local_storage(
@@ -97,12 +96,6 @@ function component_game_play(root) {
             }
         });
     }
-}
-
-function local_storage_entities_get(prefix) {
-    let keys = local_storage_entity_keys_get(prefix);
-    let result = keys.map(key => local_storage_object_get(key));
-    return result;
 }
 
 function game_object_ancestors_get(game_objects, object) {
