@@ -68,10 +68,8 @@ function component_game_play(root) {
         });
 
         for (let key of local_storage_entities_get(tiles_prefix())) {
-            let tiles = local_storage_object_get(key);
-            let {url, size} = tiles;
-            let {y_count, x_count} = await img_to_count(parent, url, size);
-            console.log({tiles})
+            let tile_set = local_storage_object_get(key);
+            let {url, size, tiles} = tile_set;
         }
 
 
