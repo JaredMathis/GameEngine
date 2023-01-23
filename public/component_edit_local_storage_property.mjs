@@ -1,5 +1,6 @@
 import { component_edit } from "./component_edit.mjs";
 import { local_storage_object_prefixed_save } from "./local_storage_object_prefixed_save.mjs";
+import { object_merge } from "./object_merge.mjs";
 
 export function component_edit_local_storage_property(
     field_infos, prefix, root, entity, property_name, id, name_disabled) {
@@ -17,7 +18,7 @@ export function component_edit_local_storage_property(
         },
         (value_new) => {
             let merged = object_merge(
-                entity[property_name][value_new.name], 
+                entity[property_name][value_new.name] || {}, 
                 value_new)
             entity[property_name][value_new.name] = merged;
             local_storage_object_prefixed_save(

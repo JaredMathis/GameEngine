@@ -20,7 +20,7 @@ export function component_edit_local_storage(fields, prefix, id_initial) {
 
     function on_save(field_values) {
         let merged = object_merge(
-            local_storage_object_get(prefix + field_values.name), 
+            local_storage_object_get(prefix + field_values.name) || {}, 
             field_values)
         local_storage_object_prefixed_save(prefix, merged);
     }
